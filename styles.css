@@ -712,3 +712,40 @@ html, body { width:100%; height:100%; overflow:hidden; background:#E8E8E4; font-
 }
 .callout-item:hover .callout-hint { opacity:1; }
 
+/* ── PASSWORD GATE ── */
+.pw-gate {
+  position:fixed; inset:0; z-index:9999;
+  background:#0A0A0A;
+  display:flex; align-items:center; justify-content:center;
+}
+.pw-card {
+  background:#fff; border-radius:12px; padding:48px 40px;
+  width:100%; max-width:420px; text-align:center;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4);
+}
+.pw-logos { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:28px; }
+.pw-logo  { height:28px; object-fit:contain; }
+.pw-logo-sep { font-size:18px; color:var(--text-3); }
+.pw-title { font-family:'Comfortaa',sans-serif; font-size:22px; font-weight:700; color:var(--text-1); margin:0 0 8px; }
+.pw-sub   { font-size:14px; color:var(--text-2); margin:0 0 24px; }
+.pw-field { display:flex; gap:8px; }
+.pw-input {
+  flex:1; padding:10px 14px; border:1.5px solid var(--rule); border-radius:var(--radius);
+  font-family:'DM Sans',sans-serif; font-size:15px; outline:none;
+  transition:border-color 0.15s;
+}
+.pw-input:focus { border-color:var(--jb-yellow); }
+.pw-btn {
+  padding:10px 20px; background:var(--jb-yellow); border:none; border-radius:var(--radius);
+  font-family:'DM Sans',sans-serif; font-size:15px; font-weight:600; cursor:pointer;
+  transition:opacity 0.15s;
+}
+.pw-btn:hover { opacity:0.85; }
+.pw-error { margin:12px 0 0; font-size:13px; color:var(--pain-red); min-height:18px; }
+@keyframes pw-shake {
+  0%,100% { transform:translateX(0); }
+  20%,60%  { transform:translateX(-6px); }
+  40%,80%  { transform:translateX(6px); }
+}
+.pw-shake { animation:pw-shake 0.35s ease; }
+

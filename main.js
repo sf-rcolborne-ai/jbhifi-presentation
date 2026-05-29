@@ -995,5 +995,53 @@ function renderThankyouSlide(config){
   return slide;
 }
 
+/* ── PASSWORD GATE ── */
+function showPasswordGate(password) {
+  const gate = document.createElement('div');
+  gate.className = 'pw-gate';
+  gate.innerHTML = `
+    <div class="pw-card">
+      <div class="pw-logos">
+        <img src="${DECK_CONFIG.meta.logos.client}" alt="JB Hi-Fi Business" class="pw-logo">
+        <span class="pw-logo-sep">×</span>
+        <img src="${DECK_CONFIG.meta.logos.partner}" alt="Salesforce" class="pw-logo">
+      </div>
+      <h2 class="pw-title">Executive Briefing</h2>
+      <p class="pw-sub">Enter the access password to continue</p>
+      <div class="pw-field">
+        <input type="password" id="pw-input" class="pw-input" placeholder="Password" autocomplete="off">
+        <button class="pw-btn" id="pw-btn">Enter</button>
+      </div>
+      <p class="pw-error" id="pw-error"></p>
+    </div>
+  `;
+  document.body.appendChild(gate);
+
+  const input = gate.querySelector('#pw-input');
+  const btn   = gate.querySelector('#pw-btn');
+  const err   = gate.querySelector('#pw-error');
+
+  function attempt() {
+    if (input.value === password) {
+      sessionStorage.setItem('deck_auth', '1');
+      gate.remove();
+      renderDeck();
+    } else {
+      err.textContent = 'Incorrect password — please try again.';
+      input.value = '';
+      input.classList.add('pw-shake');
+      input.addEventListener('animationend', () => input.classList.remove('pw-shake'), { once: true });
+      input.focus();
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  input.focus();
+}
+
 /* ── BOOT ── */
-document.addEventListener('DOMContentLoaded', renderDeck);
+document.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('deck_auth') === '1') { renderDeck(); return; }
+  showPasswordGate(DECK_CONFIG.meta.password);
+});

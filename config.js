@@ -12,7 +12,8 @@ const DECK_CONFIG = {
     logos: {
       client:  "https://www.jbhifi.business/Themes/BPDTHEME01/theme-client-updates/img/logos/logo.svg",
       partner: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png"
-    }
+    },
+    password: "jbhifi2026"  // Change this to update the access password
   },
 
   // ── SLIDES ─────────────────────────────────────────────────────────────────
