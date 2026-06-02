@@ -388,7 +388,7 @@ function renderContentBlock(block){
     }
     case 'video':{
       const wrap=el('div',{class:'drawer-video-wrap'});
-      if(block.videoType==='local'){
+      if((block.videoType||block.type)==='local'){
         const v=el('video',{src:block.url,controls:'true',style:'width:100%;border-radius:6px;'});
         wrap.appendChild(v);
       } else {
@@ -438,7 +438,7 @@ function renderDrawer(id,config){
   const imgCol=el('div',{class:'drawer-img-col'});
   if(config.imageStyle)imgCol.style.cssText=config.imageStyle;
   if(config.video){
-    if(config.video.type==='local'){
+    if((config.video.type||config.video.videoType)==='local'){
       imgCol.appendChild(el('video',{src:config.video.url,controls:'true',style:'width:100%;max-height:100%;border-radius:6px;'}));
     } else {
       imgCol.appendChild(el('iframe',{src:config.video.url,frameborder:'0',allowfullscreen:'true',
@@ -539,17 +539,16 @@ function renderAgendaSlide(config){
     `;
   }
 
+  const colLabelStyle='font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;';
   content.innerHTML=`
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:100%;">
       <div style="display:flex;flex-direction:column;gap:10px;">
+        ${config.leftLabel?`<div style="${colLabelStyle}">${config.leftLabel}</div>`:''}
         ${(config.leftItems||[]).map((item,i)=>agendaCard(item,i+1)).join('')}
       </div>
       <div style="display:flex;flex-direction:column;gap:10px;">
+        ${config.rightLabel?`<div style="${colLabelStyle}">${config.rightLabel}</div>`:''}
         ${(config.rightItems||[]).map((item,i)=>agendaCard(item,(config.leftItems||[]).length+i+1)).join('')}
-        <div style="margin-top:auto;padding:14px 16px;background:var(--off-white);border:1px solid var(--rule);border-radius:var(--radius);">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;">Session format</div>
-          <div style="font-size:13px;color:var(--text-2);line-height:1.6;">${config.sessionFormat}</div>
-        </div>
       </div>
     </div>
   `;

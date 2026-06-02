@@ -23,9 +23,9 @@ const DECK_CONFIG = {
     {
       id:       "s0",
       type:     "title",
-      subtitle: "Executive Briefing — How to get better",
+      subtitle: "Accelerating B2B Growth for JB Hi-Fi",
       metaItems: [
-        { label: "Challenge", value: "“Learn our business &amp; tell us how to get better”" },
+        { label: "Vision", value: "The path to $1 Billion" },
         { label: "Date",      value: "2026 · Executive Session" },
         { label: "Audience",  value: "JB Hi-Fi B2B Leadership Team" }
       ]
@@ -48,7 +48,7 @@ const DECK_CONFIG = {
       rightItems: [
         { title: "Deeper dive",                     sub: "Tactical and strategic recommendations in detail — what each capability unlocks and why it matters",                                          accent: "var(--jb-green)",  bg: "" },
         { title: "Your turn — prioritise together", sub: "Interactive urgency vs business value exercise — place opportunities, identify game changers, set priority order",                            accent: "var(--jb-yellow)", bg: "rgba(255,236,14,0.04)" },
-        { title: "North star &amp; next steps",     sub: "Vision statement, committed actions with named owners, and the follow-up brief Salesforce will deliver in 7 days",                          accent: "var(--jb-green)",  bg: "var(--off-white)" }
+        { title: "North star &amp; next steps",     sub: "Vision statement, committed actions with named owners, and the follow-up brief Salesforce will deliver in 14 days",                          accent: "var(--jb-green)",  bg: "var(--off-white)" }
       ],
       sessionFormat: "2 hours total &nbsp;·&nbsp; First 60 min: findings &amp; recommendations &nbsp;·&nbsp; Final 40 min: prioritisation exercise &amp; commitments &nbsp;·&nbsp; Interactive throughout"
     },
@@ -76,17 +76,17 @@ const DECK_CONFIG = {
       title:  "The end-to-end <span class=\"hl\">manual</span> journey",
       slideN: "02",
       metrics: [
-        { value: "595s",        label: "To handle one email service case",          source: "Observed · Service ridealong · pg.35" },
-        { value: "4,500+",      label: "Manual reports maintained by finance",       source: "Observed · Reporting findings · pg.45" },
-        { value: "$80K→$500K",  label: "Pipeline inflation from multi-option quotes", source: "Observed · BDM ridealong · pg.45" },
-        { value: "~Never",      label: "GP approvals rejected — yet delay every deal", source: "Observed · Inside sales · pg.19" }
+        { value: "Almost 10  mins",        label: "For observed order fulfilment",          source: "Observed · Service ridealong" },
+        { value: "4,500+",      label: "Manual reports maintained by finance",       source: "Observed · Reporting findings" },
+        { value: "$80K→$500K",  label: "Inflated Pipeline Data for multi-option quotes", source: "Observed · BDM ridealong" },
+        { value: "~Never",      label: "GP approvals rejected — yet delay every deal", source: "Observed · Inside sales" }
       ],
       painColumns: [
         {
           label:  "Sales &amp; quoting",
           colour: "#1A4A6E",
           items: [
-            "Opportunity creation takes <span class=\"n\">5–10 min</span>",
+            "Opportunity creation can takes <span class=\"n\">5–10 min</span>",
             "SKU creation up to <span class=\"n\">24+ hrs</span>",
             "BDMs tracking accounts in <span class=\"n\">Excel</span>",
             "Forecasting described as <span class=\"n\">broken</span>",
@@ -117,7 +117,7 @@ const DECK_CONFIG = {
         },
         {
           label:  "Leadership &amp; data",
-          colour: "#3D1470",
+          colour: "#3D1470", 
           items: [
             "No BDM-specific dashboards",
             "Forecasting <span class=\"n\">distrusted</span> by leadership",
@@ -141,21 +141,22 @@ const DECK_CONFIG = {
       was: {
         label: "Where you are",
         items: [
-          "Managed packages adding debt",
+          "Highly manual process lacking visibility",
+          "Unused legacy components adding tech debt",
           "Heavy customisation blocking upgrades",
-          "Data Cloud blocked by org complexity",
-          "AgentForce limited by data silos",
-          "CRMA &amp; RI pilots failed to land"
+          "Data is highliy siloed, fragmented & lacking veracity",
+          "Inability to scale and keep pace",
+          //"CRMA &amp; RI pilots failed to land"
         ]
       },
       now: {
         label: "Where you're going",
         items: [
           "Clean org — built for scale",
-          "Data Cloud unifying all customer data",
-          "AgentForce automating manual work",
+          "Unifying all customer data",
+          "Harness agentic AI to automating manual work",
           "Trusted forecasting &amp; reporting",
-          "Platform for a $1B business"
+          "Foundational Platform for a $1B business"
         ]
       },
       footnote: "The detailed platform migration path will be addressed in a separate technical session. Today is about the opportunity.",
@@ -179,7 +180,7 @@ const DECK_CONFIG = {
         {
           drawerId: "drawer-ai",
           title:    "AI Productivity — give time back to your people",
-          desc:     "Eliminate the 595-second case workflows, spreadsheet pipelines, and approval loops that never reject. AgentForce handles the manual. Your people handle the human."
+          desc:     "Eliminate the almost 10 minute order workflow, spreadsheet pipelines, and approval loops that never reject. Agents handles the manual. Your people handle the human."
         },
         {
           drawerId: "drawer-csat",
@@ -314,6 +315,12 @@ const DECK_CONFIG = {
           badge:     "Tactical · 3–9 months",
           badgeClass:"hb2",
           items: [
+             {
+              drawerId: "dstr-dc",
+              title:    "Data 360 — the unified foundation",
+              desc:     "Unify customer data from Salesforce, Excel, the product app, fulfilment systems and all other sources into a single Customer 360. The foundation that makes every AI capability more accurate.",
+              tags: [{ label: "AI Foundation", cls: "rtag-d" }, { label: "Customer", cls: "rtag-g" }]
+            },
             {
               drawerId: "dtac-quote",
               title:    "AgentForce quoting agent",
@@ -356,12 +363,7 @@ const DECK_CONFIG = {
           badge:     "Strategic · 9–18 months",
           badgeClass:"hb3",
           items: [
-            {
-              drawerId: "dstr-dc",
-              title:    "Data Cloud — the unified foundation",
-              desc:     "Unify customer data from Salesforce, Excel, the product app, fulfilment systems and all other sources into a single Customer 360. The foundation that makes every AI capability more accurate.",
-              tags: [{ label: "AI Foundation", cls: "rtag-d" }, { label: "Revenue", cls: "rtag-g" }]
-            },
+           
             {
               drawerId: "dstr-sdr",
               title:    "Agentic SDR — autonomous lead handling",
@@ -453,7 +455,7 @@ const DECK_CONFIG = {
           ownerClass: "own-b"
         },
         {
-          title: "Salesforce follow-up brief within 7 days",
+          title: "Salesforce follow-up brief within 14 days",
           sub:   "Detailed recommendations with Horizon 1 action plan",
           owner: "Salesforce",
           ownerClass: "own-sf"
@@ -476,7 +478,7 @@ const DECK_CONFIG = {
         question: "“What would make this feel like a genuinely different kind of partnership?”",
         sub:      "We know the relationship hasn't always been at its best. We're asking you to define what better looks like — and committing to deliver it."
       },
-      commit: "<strong>Salesforce commits:</strong> A written follow-up brief within 7 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session."
+      commit: "<strong>Salesforce commits:</strong> A written follow-up brief within 14 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session."
     },
 
     // ─── S9impl: IMPLEMENTATION PLAN (placeholder) ───────────────────────────
@@ -490,7 +492,7 @@ const DECK_CONFIG = {
       banner: {
         eyebrow: "Coming soon",
         heading: "Implementation plan",
-        text: "Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 7 days."
+        text: "Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 14 days."
       },
       columns: [
         { label: "Horizon 1 · 0–90 days", accent: "var(--jb-green)", accentColor: "var(--jb-green)", title: "Quick wins &amp; remediation", sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" },
@@ -507,7 +509,7 @@ const DECK_CONFIG = {
       topbarLabel: "JB Hi-Fi Business × Salesforce · 2026",
       heading: "Thank you",
       subtext: "Together toward $1B",
-      footer:  "Follow-up brief within 7 days &nbsp;·&nbsp; JB Hi-Fi B2B Executive · 2026 &nbsp;·&nbsp; Confidential"
+      footer:  "Follow-up brief within 14 days &nbsp;·&nbsp; JB Hi-Fi B2B Executive · 2026 &nbsp;·&nbsp; Confidential"
     }
 
   ],
@@ -529,11 +531,11 @@ const DECK_CONFIG = {
           label: "The opportunity",
           content: [
             { type: "paragraph", text: "Right now, your commercial teams spend a significant portion of their day on work that should be automated — copy-pasting customer details, manually dialling suppliers, building quotes field by field, and updating records after every call." },
-            { type: "paragraph", text: "<strong>AgentForce changes this.</strong> AI agents handle the routine, contextual, and repetitive — giving your people back the time to do the work only humans can do." },
+            { type: "paragraph", text: "<strong>Agentic AI changes this.</strong> AI agents handle the routine, contextual, and repetitive — giving your people back the time to do the work only humans can do." },
             { type: "paragraph", text: "As your business moves from <strong>Teams</strong> to <strong>Human + Agent Teams</strong>, revenue growth continues to accelerate while the cost of scaling flattens. The gap between the two curves is your efficiency gain." }
           ]
         },
-        {
+        /*{
           label: "What we observed at JB Hi-Fi",
           content: [
             {
@@ -546,9 +548,9 @@ const DECK_CONFIG = {
               ]
             }
           ]
-        },
+        },*/
         {
-          label: "What AgentForce can do",
+          label: "What Agentic AI can do",
           content: [
             {
               type: "bullet-list",
@@ -1003,25 +1005,10 @@ const DECK_CONFIG = {
     "dtac-quote": {
       kicker: "Tactical · 3–9 months",
       title:  "AgentForce quoting agent",
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;">
-            <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);text-align:center;">
-              <div style="font-family:'Comfortaa',sans-serif;font-size:36px;font-weight:700;color:var(--pain-red);margin-bottom:8px;">5–10 min</div>
-              <div style="font-size:12px;color:var(--text-2);">Manual quoting today</div>
-            </div>
-            <div style="font-size:28px;color:var(--jb-yellow);">→</div>
-            <div style="padding:20px;background:var(--white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);text-align:center;">
-              <div style="font-family:'Comfortaa',sans-serif;font-size:36px;font-weight:700;color:var(--jb-green);margin-bottom:8px;">Seconds</div>
-              <div style="font-size:12px;color:var(--text-2);">AgentForce quoting</div>
-            </div>
-          </div>
-          <div style="margin-top:20px;padding:20px;background:var(--off-white);border-radius:var(--radius);border-left:3px solid var(--jb-yellow);">
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7;">"Create a quote for Compass Group — HP laptops, 50 units, standard pricing, delivery to Melbourne CBD." The agent builds it, checks the product catalog, applies pricing rules, and presents it for rep review.</div>
-          </div>
-        </div>
-      `,
+      video: {
+        type: "local",
+        url: "./assets/videos/Email-to-Quote_Agentforce.mov"
+      },
       sections: [
         {
           label: "What it does",
@@ -1050,22 +1037,10 @@ const DECK_CONFIG = {
     "dtac-conv": {
       kicker: "Tactical · 3–9 months",
       title:  "Conversation Intelligence",
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;">What happens after every call today vs tomorrow</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="padding:14px 16px;background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--pain-red);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--pain-red);margin-bottom:6px;">TODAY</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Rep manually summarises the call. Logs notes in Salesforce. Updates next steps. Sets follow-up task. Often done hours later — or not at all.</div>
-            </div>
-            <div style="padding:14px 16px;background:var(--white);border:1px solid var(--jb-green);border-left:3px solid var(--jb-green);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--jb-green);margin-bottom:6px;">WITH CONVERSATION INTELLIGENCE</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Call automatically transcribed and summarised. Key signals (objections, next steps, risks) extracted. Opportunity record updated. Follow-up task created. Zero manual effort.</div>
-            </div>
-          </div>
-        </div>
-      `,
+            video: {
+        type: "youtube",
+        url: "https://www.youtube.com/embed/bo-3nItiiIM"
+      },
       sections: [
         {
           label: "What it does",
@@ -1223,19 +1198,10 @@ const DECK_CONFIG = {
     "dtac-pipe": {
       kicker: "Tactical · 3–9 months",
       title:  "Pipeline Intelligence",
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="padding:24px;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);margin-bottom:16px;">
-            <div style="font-family:'Comfortaa',sans-serif;font-size:32px;font-weight:700;color:var(--pain-red);margin-bottom:8px;">Broken</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Forecasting described by leadership as "broken" — entirely manual, done in Excel, with low trust in the numbers. Expected delivery dates often missing or inaccurate. CRMA abandoned. Revenue Intelligence pilot failed.</div>
-          </div>
-          <div style="padding:24px;background:var(--off-white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
-            <div style="font-family:'Comfortaa',sans-serif;font-size:32px;font-weight:700;color:var(--jb-green);margin-bottom:8px;">Trusted</div>
-            <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Pipeline Intelligence built on clean Salesforce data — deal scores, velocity signals, at-risk flags. Leadership makes decisions on numbers they believe. No Excel required.</div>
-          </div>
-        </div>
-      `,
+      video: {
+        type: "youtube",
+        url: "https://www.youtube.com/embed/pEutWWYMNQI"
+      },
       sections: [
         {
           label: "What it does",
@@ -1264,8 +1230,8 @@ const DECK_CONFIG = {
     // ─── STRATEGIC DRAWERS ────────────────────────────────────────────────────
 
     "dstr-dc": {
-      kicker: "Strategic · 9–18 months",
-      title:  "Data Cloud — the unified foundation",
+      kicker: "Tactical · 3–9 months",
+      title:  "Data 360 — the unified foundation",
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
         <div style="width:100%;">
@@ -1350,27 +1316,11 @@ const DECK_CONFIG = {
 
     "dstr-rev": {
       kicker: "Strategic · 9–18 months",
-      title:  "Predictive revenue intelligence",
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;">What intelligence surfaces in the rep's workflow</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="padding:14px 16px;background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--jb-green);border-radius:var(--radius);">
-              <div style="font-size:12px;font-weight:600;color:var(--black);margin-bottom:4px;">Deal scoring</div>
-              <div style="font-size:11px;color:var(--text-2);">AI-predicted close probability based on activity patterns, engagement signals and historical data</div>
-            </div>
-            <div style="padding:14px 16px;background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--pain-red);border-radius:var(--radius);">
-              <div style="font-size:12px;font-weight:600;color:var(--black);margin-bottom:4px;">Churn risk signals</div>
-              <div style="font-size:11px;color:var(--text-2);">Customers showing disengagement patterns flagged before they churn — prompting proactive outreach</div>
-            </div>
-            <div style="padding:14px 16px;background:var(--white);border:1px solid var(--rule);border-left:3px solid var(--jb-yellow);border-radius:var(--radius);">
-              <div style="font-size:12px;font-weight:600;color:var(--black);margin-bottom:4px;">Upsell propensity</div>
-              <div style="font-size:11px;color:var(--text-2);">Next best action and product recommendations surfaced in rep workflow based on purchase patterns</div>
-            </div>
-          </div>
-        </div>
-      `,
+      title:  "Revenue intelligence",
+      video: {
+        type: "youtube",
+        url: "https://www.youtube.com/embed/28qRCprCxUk"
+      },
       sections: [
         {
           label: "What it does",
