@@ -304,6 +304,8 @@ function renderDeck(){
 function renderSlide(config,index){
   const templates={
     title:         renderTitleSlide,
+    assessment:    renderAssessmentSlide,
+    results:       renderResultsSlide,
     agenda:        renderAgendaSlide,
     cover:         renderCoverSlide,
     findings:      renderFindingsSlide,
@@ -514,6 +516,17 @@ function renderTitleSlide(config){
       </div>
     </div>
   `;
+  // Assessment toggle button
+  const assessVisible = DECK_CONFIG.slides.some(s=>s.id==='s-assess' && !s.hidden);
+  const toggleBtn = el('button',{
+    id:'assess-toggle',
+    class:'assess-toggle-btn'+(assessVisible?' active':''),
+    onclick:'toggleAssessmentSlides()'
+  });
+  toggleBtn.textContent = assessVisible ? '📋 Hide assessment slides' : '📋 Pre-workshop assessment';
+  body.style.position='relative';
+  body.appendChild(toggleBtn);
+
   slide.appendChild(body);
   return slide;
 }
@@ -1037,6 +1050,246 @@ function showPasswordGate(password) {
   btn.addEventListener('click', attempt);
   input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
   input.focus();
+}
+
+/* ── SURVEY SCORES (persisted to localStorage) ── */
+// Key is scoped to the client name so multiple decks never share scores.
+const SURVEY_KEY = 'survey-' + (DECK_CONFIG.meta.client||'deck').toLowerCase().replace(/[^a-z0-9]/g,'-');
+let surveyScores = JSON.parse(localStorage.getItem(SURVEY_KEY) || '{}');
+
+function setSurveyScore(questionId, score){
+  surveyScores[questionId] = score;
+  localStorage.setItem(SURVEY_KEY, JSON.stringify(surveyScores));
+  document.querySelectorAll('.survey-score-btn[data-qid="'+questionId+'"]').forEach(btn=>{
+    const s = parseInt(btn.dataset.score);
+    if(s === score){ btn.classList.add('selected'); }
+    else { btn.classList.remove('selected'); }
+  });
+  const resultsSlide = document.getElementById('s-results');
+  if(resultsSlide && resultsSlide.style.display !== 'none'){ drawAllCharts(); }
+}
+
+/* ── TOGGLE ASSESSMENT SLIDES ── */
+function toggleAssessmentSlides(){
+  const ids = ['s-assess','s-results'];
+  const currentlyVisible = DECK_CONFIG.slides.some(s=>s.id==='s-assess' && !s.hidden);
+  DECK_CONFIG.slides.filter(s=>ids.includes(s.id)).forEach(s=>{ s.hidden = currentlyVisible; });
+  const deck = document.getElementById('deck');
+  deck.innerHTML = '';
+  renderDeck();
+  cur = 0;
+  const allSlides = document.querySelectorAll('.slide');
+  if(allSlides.length) allSlides[0].scrollIntoView({behavior:'instant'});
+}
+
+/* ── ASSESSMENT SLIDE ── */
+function renderAssessmentSlide(config){
+  const slide = slideShell(config);
+  const body = el('div',{class:'body'});
+  const inner = el('div',{class:'slide-inner'});
+  inner.appendChild(slideInnerHead(config));
+
+  const navBar = el('div',{class:'survey-nav-bar'});
+  const viewBtn = el('button',{class:'survey-nav-btn',onclick:'navToResults()'});
+  viewBtn.textContent = 'View results →';
+  navBar.appendChild(viewBtn);
+  inner.appendChild(navBar);
+
+  const scroll = el('div',{class:'survey-scroll'});
+
+  (DECK_CONFIG.survey.pillars||[]).forEach(pillar=>{
+    const section = el('div',{class:'survey-pillar'});
+
+    const head = el('div',{class:'survey-pillar-head'});
+    head.style.background = pillar.colour;
+    const titleSpan = el('span',{}); titleSpan.textContent = pillar.label;
+    const progressSpan = el('span',{class:'survey-pillar-progress',id:'progress-'+pillar.id});
+    progressSpan.textContent = getSurveyProgress(pillar);
+    head.append(titleSpan, progressSpan);
+    section.appendChild(head);
+
+    pillar.questions.forEach(q=>{
+      const row = el('div',{class:'survey-q-row'});
+      const left = el('div');
+      const meta = el('div',{class:'survey-q-meta'}); meta.textContent = q.subDimension;
+      const qtext = el('div',{class:'survey-q-text'}); qtext.textContent = q.question;
+      left.append(meta, qtext);
+
+      const btns = el('div',{class:'survey-score-btns'});
+      q.answers.forEach((answerText, scoreIdx)=>{
+        const btn = el('button',{
+          class:'survey-score-btn',
+          'data-qid': q.id,
+          'data-score': scoreIdx,
+          title: answerText
+        });
+        const label = el('span'); label.textContent = scoreIdx === 0 ? '?' : scoreIdx;
+        const tooltip = el('span',{class:'score-tooltip'}); tooltip.textContent = answerText;
+        btn.append(label, tooltip);
+
+        const savedScore = surveyScores[q.id];
+        if(savedScore !== undefined && savedScore === scoreIdx){
+          btn.classList.add('selected');
+          btn.style.background = pillar.colour;
+        }
+        btn.onclick = ()=>{
+          setSurveyScore(q.id, scoreIdx);
+          const prog = document.getElementById('progress-'+pillar.id);
+          if(prog) prog.textContent = getSurveyProgress(pillar);
+        };
+        btn.onmouseover = ()=>{ if(!btn.classList.contains('selected')) btn.style.borderColor=pillar.colour; };
+        btn.onmouseout  = ()=>{ if(!btn.classList.contains('selected')) btn.style.borderColor=''; };
+        btns.appendChild(btn);
+      });
+
+      row.append(left, btns);
+      section.appendChild(row);
+    });
+
+    scroll.appendChild(section);
+  });
+
+  inner.appendChild(scroll);
+  body.appendChild(inner);
+  slide.appendChild(body);
+  return slide;
+}
+
+function getSurveyProgress(pillar){
+  const answered = pillar.questions.filter(q=>surveyScores[q.id]!==undefined).length;
+  return answered + ' / ' + pillar.questions.length + ' answered';
+}
+
+function navToResults(){
+  const resultsEl = document.getElementById('s-results');
+  if(resultsEl){ resultsEl.scrollIntoView({behavior:'smooth'}); }
+}
+
+/* ── RESULTS SLIDE ── */
+let chartInstances = {};
+
+function renderResultsSlide(config){
+  const slide = slideShell(config);
+  const body = el('div',{class:'body'});
+  const inner = el('div',{class:'slide-inner'});
+  inner.appendChild(slideInnerHead(config));
+
+  const backBar = el('div',{style:'padding:0 40px 8px;flex-shrink:0;'});
+  const backBtn = el('button',{class:'results-back-btn',onclick:'navToAssessment()'});
+  backBtn.textContent = '← Back to assessment';
+  backBar.appendChild(backBtn);
+  inner.appendChild(backBar);
+
+  const scroll = el('div',{class:'results-scroll'});
+  const pillars = DECK_CONFIG.survey.pillars||[];
+
+  const row1 = el('div',{class:'results-grid'});
+  pillars.slice(0,3).forEach(p=>{ row1.appendChild(buildResultsPanel(p)); });
+  scroll.appendChild(row1);
+
+  if(pillars.length > 3){
+    const row2 = el('div',{class:'results-row2'});
+    pillars.slice(3).forEach(p=>{ row2.appendChild(buildResultsPanel(p)); });
+    scroll.appendChild(row2);
+  }
+
+  inner.appendChild(scroll);
+  body.appendChild(inner);
+  slide.appendChild(body);
+
+  requestAnimationFrame(()=>drawAllCharts());
+  return slide;
+}
+
+function buildResultsPanel(pillar){
+  const stats = getPillarStats(pillar);
+  const panel = el('div',{class:'results-panel'});
+
+  const head = el('div',{class:'results-panel-head'});
+  head.style.background = pillar.colour;
+  const titleCell = el('div',{class:'results-panel-head-title'}); titleCell.textContent = pillar.label;
+  const avgLabel = el('div',{class:'results-panel-stat-label'}); avgLabel.textContent = 'Average';
+  const avgVal = el('div',{class:'results-panel-stat-val',id:'avg-'+pillar.id}); avgVal.textContent = stats.avg;
+  head.append(titleCell, avgLabel, avgVal);
+  panel.appendChild(head);
+
+  const sub = el('div',{class:'results-panel-subrow'});
+  [['Min',stats.min],['Max',stats.max],['Range',stats.range]].forEach(([label,val])=>{
+    const lSpan = el('span'); lSpan.textContent = label;
+    const vSpan = el('span'); vSpan.textContent = val;
+    sub.append(lSpan, vSpan);
+  });
+  panel.appendChild(sub);
+
+  const wrap = el('div',{class:'chart-wrap'});
+  const canvas = el('canvas',{id:'chart-'+pillar.id, height:'180'});
+  wrap.appendChild(canvas);
+  panel.appendChild(wrap);
+
+  return panel;
+}
+
+function getPillarStats(pillar){
+  const scores = pillar.questions
+    .map(q=>surveyScores[q.id])
+    .filter(s=>s!==undefined && s!==0);
+  if(!scores.length) return {avg:'—', min:'—', max:'—', range:'—'};
+  const min = Math.min(...scores);
+  const max = Math.max(...scores);
+  const avg = (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1);
+  return {avg, min, max, range: max-min};
+}
+
+function drawAllCharts(){
+  (DECK_CONFIG.survey.pillars||[]).forEach(pillar=>{
+    const canvas = document.getElementById('chart-'+pillar.id);
+    if(!canvas) return;
+    if(chartInstances[pillar.id]){ chartInstances[pillar.id].destroy(); delete chartInstances[pillar.id]; }
+
+    const scores = pillar.questions.map(q=>{
+      const s = surveyScores[q.id];
+      return (s===undefined||s===0) ? 0 : s;
+    });
+    const labels = pillar.questions.map(q=>q.subDimension);
+
+    chartInstances[pillar.id] = new Chart(canvas, {
+      type: 'radar',
+      data: {
+        labels,
+        datasets: [{
+          data: scores,
+          backgroundColor: pillar.colour+'33',
+          borderColor: pillar.colour,
+          borderWidth: 2,
+          pointBackgroundColor: pillar.colour,
+          pointRadius: 4,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        scales: {
+          r: {
+            min: 0, max: 5,
+            ticks: { stepSize:1, font:{size:9}, color:'#9A9A94', backdropColor:'transparent' },
+            grid: { color:'#E5E5E2' },
+            angleLines: { color:'#E5E5E2' },
+            pointLabels: { font:{size:10, family:"'DM Sans',sans-serif"}, color:'#4A4A46' }
+          }
+        },
+        plugins: { legend:{ display:false } }
+      }
+    });
+
+    const stats = getPillarStats(pillar);
+    const avgEl = document.getElementById('avg-'+pillar.id);
+    if(avgEl) avgEl.textContent = stats.avg;
+  });
+}
+
+function navToAssessment(){
+  const el = document.getElementById('s-assess');
+  if(el) el.scrollIntoView({behavior:'smooth'});
 }
 
 /* ── BOOT ── */

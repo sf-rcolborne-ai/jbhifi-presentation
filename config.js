@@ -16,8 +16,398 @@ const DECK_CONFIG = {
     password: "jbhifi2026"  // Change this to update the access password
   },
 
+  // ── SURVEY ─────────────────────────────────────────────────────────────────
+  // 25 capability assessment questions across 5 pillars.
+  // answers[0] = "I don't know", answers[1-5] = scored responses.
+  survey: {
+    pillars: [
+      {
+        id: "strategy",
+        label: "Strategy",
+        colour: "#00AEEF",
+        questions: [
+          {
+            id: "q-strat-1",
+            subDimension: "Vision",
+            question: "How well defined is the vision for collaboration and productivity?",
+            answers: [
+              "I don't know",
+              "We do not have a defined vision for collaboration and productivity across the business.",
+              "Collaboration and productivity goals based on team preference and execution.",
+              "Cross-functional business units share similar collaboration and productivity goals.",
+              "Regional leaders define their vision for collaboration and productivity.",
+              "Group-wide strategy for collaboration and productivity driven top-down from the executive-level."
+            ]
+          },
+          {
+            id: "q-strat-2",
+            subDimension: "Executive Sponsorship",
+            question: "To what extent are executives involved in direct engagement with employees? How involved are executives in the strategy and direction of collaboration and productivity across the business?",
+            answers: [
+              "I don't know",
+              "Executives engage with employees through large-scale emails. Employees are not able to engage directly with executives.",
+              "Executives deliver large-scale communications via multiple platforms across the organisation. Communication is one-way, employees are not able to engage directly with executives.",
+              "Executives deliver large-scale communications via multiple platforms. Employees are able to engage with executives through defined communication channels.",
+              "Executives engage and respond directly with employees on their preferred communication platform, which may be different across the organisation.",
+              "Executives engage bi-directionally with employees through a single collaboration platform, for both formal and informal communications."
+            ]
+          },
+          {
+            id: "q-strat-3",
+            subDimension: "Business Units",
+            question: "To what extent are individual business units connected in order to drive a seamless customer experience?",
+            answers: [
+              "I don't know",
+              "Limited connection between business units. Connection is at the individual level.",
+              "Ad-hoc connection between business units depending on the collaboration platform chosen by the teams.",
+              "Cross-functional business units with customer-facing roles connect with one another on a common platform to drive seamless customer experience.",
+              "There is purposeful connection at a regional or subsidiary level on a common platform to drive the customer experience strategy.",
+              "Completely aligned. Business units across the org connect exclusively on a common platform to drive seamless customer experience."
+            ]
+          },
+          {
+            id: "q-strat-4",
+            subDimension: "Alignment",
+            question: "How are people across the business kept informed and aligned on company objectives?",
+            answers: [
+              "I don't know",
+              "Our teams are not strategically aligned to our objectives.",
+              "Top-line leaders are informed of company vision and are expected to enforce.",
+              "Top-line leaders help to shape company objectives and are expected to push the information down.",
+              "Company objectives are collaboratively developed with key stakeholders before being published to the wider business.",
+              "Each individual within our organisation is hyper-aware of our company objectives, which receive regular feedback in an open forum."
+            ]
+          },
+          {
+            id: "q-strat-5",
+            subDimension: "Governance",
+            question: "How well defined are the bounds and focus of enhancing collaboration and productivity across the business?",
+            answers: [
+              "I don't know",
+              "No measures for collaboration and productivity defined.",
+              "Measures for productivity and collaboration inconsistently defined by different business units. No means to track and report.",
+              "Consistent measures for productivity and collaboration defined at the organisation-level. Limited tracking and reporting.",
+              "Consistent measures for productivity and collaboration defined at the organisation-level. Tracking and reporting driven by business units.",
+              "Metrics for measuring and reporting on collaboration and productivity owned by a central governing team, with initiatives to continually track and improve on metrics."
+            ]
+          }
+        ]
+      },
+      {
+        id: "collaboration",
+        label: "Collaboration",
+        colour: "#F5A623",
+        questions: [
+          {
+            id: "q-collab-1",
+            subDimension: "Cross-Functional Collaboration",
+            question: "How well do cross-functional teams collaborate to achieve a common goal?",
+            answers: [
+              "I don't know",
+              "All work is carried out by individuals.",
+              "Collaboration flows up through managers and back down to employees.",
+              "Pockets of collaboration based on individual relationships.",
+              "Teams collaborate within their business unit.",
+              "Anyone can readily collaborate across the business."
+            ]
+          },
+          {
+            id: "q-collab-2",
+            subDimension: "Swarming",
+            question: "When urgent help is needed, how accessible are the right people and contextual information?",
+            answers: [
+              "I don't know",
+              "A single owner handles with the information available to them.",
+              "A rigid escalation process requires approvals before involving others.",
+              "People rely on 'who they know' to get help.",
+              "Groups are notified and some information is accessible.",
+              "Experts are readily available and all relevant information is easily accessible."
+            ]
+          },
+          {
+            id: "q-collab-3",
+            subDimension: "Transparency",
+            question: "How accessible is information across the business or function?",
+            answers: [
+              "I don't know",
+              "Information is rarely written or digital. Information is passed by word-of-mouth.",
+              "Information is largely at the individual level.",
+              "Information exists in silos and is often out of date.",
+              "Information is in multiple disparate systems. Individuals need to search for what they need.",
+              "Systems are connected and information is readily accessible across the business."
+            ]
+          },
+          {
+            id: "q-collab-4",
+            subDimension: "Organisation Navigation",
+            question: "How easily can you find people and understand their role?",
+            answers: [
+              "I don't know",
+              "Finding the right person is dependent on personal introductions.",
+              "A manually maintained list is periodically updated.",
+              "A directory is available but lacks role information.",
+              "Directory is up to date with role, position and team.",
+              "Directory is easily accessible and contains comprehensive information."
+            ]
+          },
+          {
+            id: "q-collab-5",
+            subDimension: "Customer Engagement",
+            question: "How are customers, partners and vendors engaged and information shared?",
+            answers: [
+              "I don't know",
+              "Ad hoc emails, calls and meetings. No external info sharing platform.",
+              "External processes replicated using separate systems.",
+              "Regular meetings but often rescheduled or delayed.",
+              "Connected in silos — in-person, email, video, systems.",
+              "Real-time transparent engagement on a single shared timeline."
+            ]
+          }
+        ]
+      },
+      {
+        id: "productivity",
+        label: "Productivity",
+        colour: "#2ECC71",
+        questions: [
+          {
+            id: "q-prod-1",
+            subDimension: "Focus & Deep Work",
+            question: "To what extent can teams find time for uninterrupted focus?",
+            answers: [
+              "I don't know",
+              "Days are filled with meetings. Work is done nights and weekends.",
+              "Constantly interrupted. Struggle to complete work in working hours.",
+              "Set aside time for focus but often replaced with meetings or email.",
+              "Certain days or times are designated for deep work.",
+              "Employees are empowered to set dedicated focus periods."
+            ]
+          },
+          {
+            id: "q-prod-2",
+            subDimension: "Efficiency",
+            question: "How efficient are work processes and practices?",
+            answers: [
+              "I don't know",
+              "People repeat themselves constantly.",
+              "Disconnected systems prevent timely progress.",
+              "Goals are regularly hit but require constant status updates.",
+              "Integration provides good efficiency, disrupted outside normal workflow.",
+              "Actions are resolved quickly and teams can rapidly engage the right people."
+            ]
+          },
+          {
+            id: "q-prod-3",
+            subDimension: "Knowledge Dissemination",
+            question: "How is knowledge distributed and made available across the organisation?",
+            answers: [
+              "I don't know",
+              "No central source of knowledge. Tribal peer-to-peer sharing.",
+              "Individuals create their own repositories.",
+              "Multiple isolated sources that are difficult to maintain.",
+              "A single source maintained by a specific team.",
+              "A single central system plus crowdsourced expert contributions."
+            ]
+          },
+          {
+            id: "q-prod-4",
+            subDimension: "App Distribution",
+            question: "Do employees know where to get what they need? How is tool adoption and utilisation managed?",
+            answers: [
+              "I don't know",
+              "Many tools with the same purpose, largely underused.",
+              "Each team maintains its own tool set.",
+              "An application directory exists but access and provisioning is slow.",
+              "Business provides a standard suite; teams can request additional tools.",
+              "Tools are easily accessible and easily integrated into workflows."
+            ]
+          },
+          {
+            id: "q-prod-5",
+            subDimension: "Flow of Work",
+            question: "How readily do processes flow between people and groups? Are they streamlined or automated?",
+            answers: [
+              "I don't know",
+              "Hierarchical processes create bottlenecks.",
+              "Isolated systems cause duplication of effort.",
+              "Defined processes owned by individuals with visibility issues.",
+              "Some systems are integrated and automated but status updates are needed.",
+              "Highly integrated processes that are quickly defined and deployed."
+            ]
+          }
+        ]
+      },
+      {
+        id: "experience",
+        label: "Experience",
+        colour: "#E91E8C",
+        questions: [
+          {
+            id: "q-exp-1",
+            subDimension: "Onboarding & Enablement",
+            question: "How are employees onboarded and ramped into their role?",
+            answers: [
+              "I don't know",
+              "No streamlined or standardised process.",
+              "Managed by the hiring manager with varying approaches.",
+              "Managed at divisional level with no centralised team.",
+              "Managed by a central team with role-based approaches that vary.",
+              "Streamlined centrally with uniform processes per division."
+            ]
+          },
+          {
+            id: "q-exp-2",
+            subDimension: "Internal Communications",
+            question: "How readily do employees receive and find internal news, updates and notifications?",
+            answers: [
+              "I don't know",
+              "Spread across disparate systems and hard to find.",
+              "Shared via mass emails with low engagement.",
+              "Shared via email and intranet, sometimes missed.",
+              "Different channels by level; majority know where to find information.",
+              "Agreed channels across the organisation; all employees aware."
+            ]
+          },
+          {
+            id: "q-exp-3",
+            subDimension: "Employee Engagement",
+            question: "How engaged and committed are employees to the organisation's mission and objectives?",
+            answers: [
+              "I don't know",
+              "Actively disengaged with negative attitudes.",
+              "Neither engaged nor committed — attrition risk.",
+              "Engaged but not committed.",
+              "Partly engaged and committed, levels vary.",
+              "Engaged and committed with a clear understanding of their role contribution."
+            ]
+          },
+          {
+            id: "q-exp-4",
+            subDimension: "Connectedness",
+            question: "How well connected are people across teams?",
+            answers: [
+              "I don't know",
+              "Connection is poor and tooling is not standardised.",
+              "Connection is limited and varies across the business.",
+              "Excellent at divisional level but not cross-functional.",
+              "Good collaboration across teams and business areas.",
+              "Excellent — organisational silos do not exist."
+            ]
+          },
+          {
+            id: "q-exp-5",
+            subDimension: "Culture, Diversity & Inclusion",
+            question: "How active is the organisation in promoting and engaging in D&I programs and initiatives?",
+            answers: [
+              "I don't know",
+              "No active focus or participation.",
+              "Limited focus with some areas engaged.",
+              "Active focus at divisional level.",
+              "Programs and initiatives at org-wide and divisional level.",
+              "D&I is core to culture, woven into hiring, values and ways of working."
+            ]
+          }
+        ]
+      },
+      {
+        id: "technology",
+        label: "Technology",
+        colour: "#FF6B35",
+        questions: [
+          {
+            id: "q-tech-1",
+            subDimension: "Data & Integrations",
+            question: "To what degree are systems integrated and data readily available?",
+            answers: [
+              "I don't know",
+              "Systems are not fully integrated.",
+              "No integrations but identified with resources available.",
+              "Limited integrations with resources assigned.",
+              "Actionable data from multiple sources but not real-time.",
+              "Real-time actionable data from multiple sources."
+            ]
+          },
+          {
+            id: "q-tech-2",
+            subDimension: "Mobility",
+            question: "To what degree can employees perform tasks from a mobile device vs desktop or laptop?",
+            answers: [
+              "I don't know",
+              "Can hardly perform any tasks on mobile.",
+              "Can perform a few basic tasks on mobile.",
+              "Moderate capability on mobile with some desktop reliance.",
+              "Wide range of tasks on mobile with significant flexibility.",
+              "Full capability on mobile — rarely need a desktop."
+            ]
+          },
+          {
+            id: "q-tech-3",
+            subDimension: "Flexibility & Autonomy",
+            question: "How much flexibility do employees have to choose their own tools versus corporate mandated tools?",
+            answers: [
+              "I don't know",
+              "No flexibility — corporate mandated tools only.",
+              "Limited flexibility, predominantly corporate tools.",
+              "Some flexibility within corporate guidelines.",
+              "Moderate flexibility with a range of software options.",
+              "High flexibility with a wide variety of software allowed."
+            ]
+          },
+          {
+            id: "q-tech-4",
+            subDimension: "Innovation",
+            question: "How empowered are employees to streamline processes for efficiency?",
+            answers: [
+              "I don't know",
+              "IT owns any data process. No innovation encouraged.",
+              "Changes require many approvals and long timelines.",
+              "Agile practices allow quick rollout but handled by IT.",
+              "People build processes that remain within their own silos.",
+              "People regularly design, build and share automations."
+            ]
+          },
+          {
+            id: "q-tech-5",
+            subDimension: "Security",
+            question: "How would you describe the security of data and systems, and the accessibility of data?",
+            answers: [
+              "I don't know",
+              "No security policy. All data is accessible.",
+              "Security policy with few controls — still developing.",
+              "Moderately secure with some measures in place.",
+              "Security-conscious with industry best practices and strict controls.",
+              "Security is a top priority with a comprehensive policy and state-of-the-art controls."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+
   // ── SLIDES ─────────────────────────────────────────────────────────────────
   slides: [
+
+    // ─── ASSESSMENT (hidden — toggle on title slide to show) ─────────────────
+    {
+      id:    "s-assess",
+      type:  "assessment",
+      hidden: true,
+      topbarLabel: "Pre-workshop assessment",
+      kicker: "Before we begin",
+      title:  "Capability <span class=\"hl\">assessment</span>",
+      slideN: false
+    },
+
+    // ─── RESULTS (hidden — toggle on title slide to show) ────────────────────
+    {
+      id:    "s-results",
+      type:  "results",
+      hidden: true,
+      topbarLabel: "Assessment results",
+      kicker: "Your results",
+      title:  "Results <span class=\"hl\">overview</span>",
+      slideN: false
+    },
 
     // ─── S0: TITLE ───────────────────────────────────────────────────────────
     {
