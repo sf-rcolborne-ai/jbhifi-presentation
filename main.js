@@ -9,6 +9,7 @@ function initNav(){
   slides=document.querySelectorAll(".slide");
   ndots=document.getElementById("ndots");
   scnt=document.getElementById("scnt");
+  ndots.innerHTML='';
   slides.forEach((_,i)=>{
     const d=document.createElement("div");
     d.className="nd"+(i===0?" on":"");
@@ -44,16 +45,26 @@ const qClass={s:"ch-s",v:"ch-v",m:"ch-m",d:"ch-d"};
 
 function drop(e,qid){
   e.preventDefault();if(!dragged)return;
-  const id=dragged.id||("d"+Date.now());
+  const rawId=dragged.id||("d"+Date.now());
+  const id=rawId.startsWith("p-")?rawId.slice(2):rawId;
   const label=dragged.dataset.label||dragged.textContent.trim();
   const qtype=dragged.dataset.q||"s";
   const q=document.getElementById(qid);
   document.querySelectorAll(".placed-"+id).forEach(el=>el.remove());
   const chip=document.createElement("span");
   chip.className="opp-chip "+(qClass[qtype]||"ch-s")+" placed-"+id;
-  chip.textContent=label;chip.draggable=true;chip.id="p-"+id;
+  chip.draggable=true;chip.id="p-"+id;
   chip.dataset.label=label;chip.dataset.q=qtype;
   chip.ondragstart=drag;
+  const labelSpan=document.createElement("span");labelSpan.textContent=label;
+  const removeBtn=document.createElement("button");
+  removeBtn.className="chip-remove";removeBtn.textContent="×";removeBtn.title="Remove";
+  removeBtn.onclick=(e)=>{
+    e.stopPropagation();
+    chip.remove();
+    const orig=document.getElementById(id);if(orig)orig.classList.remove("done");
+  };
+  chip.append(labelSpan,removeBtn);
   q.appendChild(chip);
   const orig=document.getElementById(id);if(orig)orig.classList.add("done");
   dragged=null;
