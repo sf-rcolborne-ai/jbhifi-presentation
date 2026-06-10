@@ -493,6 +493,16 @@ function renderTitleSlide(config){
   topbar.append(logoPair,el('div',{class:'slide-label'},'Confidential · Executive Briefing · 2026'));
   slide.appendChild(topbar);
 
+  // Full-width image band (optional — set imagePath on the s0 slide config)
+  if(config.imagePath){
+    const imgBand=el('div',{style:'width:100%;height:220px;overflow:hidden;flex-shrink:0;'});
+    const img=document.createElement('img');
+    img.src=config.imagePath;img.alt='';
+    img.style.cssText='width:100%;height:100%;object-fit:cover;object-position:center;display:block;';
+    imgBand.appendChild(img);
+    slide.appendChild(imgBand);
+  }
+
   const body=el('div',{class:'body',style:'display:flex;align-items:center;justify-content:center;'});
   body.innerHTML=`
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;">

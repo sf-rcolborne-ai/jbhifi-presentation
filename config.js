@@ -414,10 +414,11 @@ const DECK_CONFIG = {
       id:       "s0",
       type:     "title",
       subtitle: "Accelerating B2B Growth for JB Hi-Fi",
+      imagePath: null,
       metaItems: [
         { label: "Vision", value: "The path to $1 Billion" },
-        { label: "Date",      value: "2026 · Executive Session" },
-        { label: "Audience",  value: "JB Hi-Fi B2B Leadership Team" }
+        { label: "Date",      value: "16 June 2026" },
+        { label: "Audience",  value: "JB Hi-Fi B2B team" }
       ]
     },
 
@@ -449,11 +450,11 @@ const DECK_CONFIG = {
       type:     "cover",
       topbarLabel: "Confidential · Executive Briefing · 2026",
       eyebrow:  "Executive Briefing · 2026",
-      headline: "Learn your<br>business.<br><em>Get better.</em>",
+      headline: "Consumer Ease.<br>Enterprise Power.",
       goals: [
         { title: "Revenue Growth",       sub: "Scale to $1 billion" },
         { title: "Customer Satisfaction", sub: "From reactive to proactive" },
-        { title: "AI Productivity",       sub: "Give time back to your people" }
+        { title: "Productivity",       sub: "Give time back to your people" }
       ]
     },
 
@@ -467,7 +468,7 @@ const DECK_CONFIG = {
       slideN: "02",
       metrics: [
         { value: "Almost 10  mins",        label: "For observed order fulfilment",          source: "Observed · Service ridealong" },
-        { value: "4,500+",      label: "Manual reports maintained by finance",       source: "Observed · Reporting findings" },
+         { value: "4,500+",      label: "Manual reports maintained by finance",       source: "Observed · Reporting findings" },
         { value: "$80K→$500K",  label: "Inflated Pipeline Data for multi-option quotes", source: "Observed · BDM ridealong" },
         { value: "~Never",      label: "GP approvals rejected — yet delay every deal", source: "Observed · Inside sales" }
       ],
@@ -542,11 +543,11 @@ const DECK_CONFIG = {
       now: {
         label: "Where you're going",
         items: [
-          "Clean org — built for scale",
-          "Unifying all customer data",
-          "Harness agentic AI to automating manual work",
+          "Remove legacy technical debt",
+          "Connect & unify data for accessibility & action",
+          "Harness automation to remove manual work",
           "Trusted forecasting &amp; reporting",
-          "Foundational Platform for a $1B business"
+          "Foundational Platform for a $1B business and beyond"
         ]
       },
       footnote: "The detailed platform migration path will be addressed in a separate technical session. Today is about the opportunity.",
@@ -569,7 +570,7 @@ const DECK_CONFIG = {
       steps: [
         {
           drawerId: "drawer-ai",
-          title:    "AI Productivity — give time back to your people",
+          title:    "Productivity — give time back to your people",
           desc:     "Eliminate the almost 10 minute order workflow, spreadsheet pipelines, and approval loops that never reject. Agents handles the manual. Your people handle the human."
         },
         {
@@ -587,7 +588,7 @@ const DECK_CONFIG = {
       diagram: {
         centerValue: "$1B",
         centerLabel: "Target",
-        tagTop:    "AI Productivity",
+        tagTop:    "Productivity",
         tagRight:  "Customer<br>Satisfaction",
         tagBottom: "Revenue Growth"
       }
@@ -828,75 +829,75 @@ const DECK_CONFIG = {
       slideN: "7b"
     },
 
+    // ─── S9impl: IMPLEMENTATION PLAN (placeholder) ───────────────────────────
+    {
+      id:    “s9impl”,
+      type:  “placeholder”,
+      topbarLabel: “Implementation plan”,
+      kicker: “Roadmap”,
+      title:  “Implementation <span class=\”hl\”>plan</span>”,
+      slideN: “09”,
+      banner: {
+        eyebrow: “Coming soon”,
+        heading: “Implementation plan”,
+        text: “Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 14 days.”
+      },
+      columns: [
+        { label: “Horizon 1 · 0–90 days”, accent: “var(--jb-green)”, accentColor: “var(--jb-green)”, title: “Quick wins &amp; remediation”, sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” },
+        { label: “Horizon 2 · 3–9 months”, accent: “var(--text-2)”, accentColor: “var(--text-2)”,   title: “Automate &amp; connect”,       sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” },
+        { label: “Horizon 3 · 9–18 months”, accent: “var(--black)”, accentColor: “var(--black)”,    title: “Platform for $1B”,             sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” }
+      ],
+      note: “This slide will be fully populated in the Salesforce follow-up brief · Priorities confirmed in today's session will drive the sequencing”
+    },
+
     // ─── S8: NORTH STAR ──────────────────────────────────────────────────────
     {
-      id:    "s8",
-      type:  "north_star",
-      topbarLabel: "Where we go from here",
-      kicker: "Where we go from here",
-      title:  "North star &amp; <span class=\"hl\">next steps</span>",
-      slideN: "08",
-      vision: "A JB Hi-Fi commercial organisation where <strong>every rep, marketer and service agent</strong> is equipped with the right insight at the right moment &mdash; powered by unified data and autonomous AI &mdash; so the team that built a $500M business <strong>can build a $1B one</strong>.",
+      id:    “s8”,
+      type:  “north_star”,
+      topbarLabel: “Where we go from here”,
+      kicker: “Where we go from here”,
+      title:  “North star &amp; <span class=\”hl\”>next steps</span>”,
+      slideN: “08”,
+      vision: “A JB Hi-Fi commercial organisation where <strong>every rep, marketer and service agent</strong> is equipped with the right insight at the right moment &mdash; powered by unified data and autonomous AI &mdash; so the team that built a $500M business <strong>can build a $1B one</strong>.”,
       actions: [
         {
-          title: "Confirm top priorities from today",
-          sub:   "Named owners, clear next action from the prioritisation exercise",
-          owner: "Both",
-          ownerClass: "own-b"
+          title: “Confirm top priorities from today”,
+          sub:   “Named owners, clear next action from the prioritisation exercise”,
+          owner: “Both”,
+          ownerClass: “own-b”
         },
         {
-          title: "Salesforce follow-up brief within 14 days",
-          sub:   "Detailed recommendations with Horizon 1 action plan",
-          owner: "Salesforce",
-          ownerClass: "own-sf"
+          title: “Salesforce follow-up brief within 14 days”,
+          sub:   “Detailed recommendations with Horizon 1 action plan”,
+          owner: “Salesforce”,
+          ownerClass: “own-sf”
         },
         {
-          title: "Technical platform session — separate booking",
-          sub:   "Clean org path, Data Cloud architecture, timeline &amp; investment",
-          owner: "Salesforce",
-          ownerClass: "own-sf"
+          title: “Technical platform session — separate booking”,
+          sub:   “Clean org path, Data Cloud architecture, timeline &amp; investment”,
+          owner: “Salesforce”,
+          ownerClass: “own-sf”
         },
         {
-          title: "Horizon 1 delivery begins",
-          sub:   "First items scoped and scheduled — results visible in 90 days",
-          owner: "Both",
-          ownerClass: "own-b"
+          title: “Horizon 1 delivery begins”,
+          sub:   “First items scoped and scheduled — results visible in 90 days”,
+          owner: “Both”,
+          ownerClass: “own-b”
         }
       ],
       closing: {
-        label:    "The closing question",
-        question: "“What would make this feel like a genuinely different kind of partnership?”",
-        sub:      "We know the relationship hasn't always been at its best. We're asking you to define what better looks like — and committing to deliver it."
+        label:    “The closing question”,
+        question: “”What would make this feel like a genuinely different kind of partnership?””,
+        sub:      “We know the relationship hasn't always been at its best. We're asking you to define what better looks like — and committing to deliver it.”
       },
-      commit: "<strong>Salesforce commits:</strong> A written follow-up brief within 14 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session."
-    },
-
-    // ─── S9impl: IMPLEMENTATION PLAN (placeholder) ───────────────────────────
-    {
-      id:    "s9impl",
-      type:  "placeholder",
-      topbarLabel: "Implementation plan",
-      kicker: "Roadmap",
-      title:  "Implementation <span class=\"hl\">plan</span>",
-      slideN: "09",
-      banner: {
-        eyebrow: "Coming soon",
-        heading: "Implementation plan",
-        text: "Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 14 days."
-      },
-      columns: [
-        { label: "Horizon 1 · 0–90 days", accent: "var(--jb-green)", accentColor: "var(--jb-green)", title: "Quick wins &amp; remediation", sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" },
-        { label: "Horizon 2 · 3–9 months", accent: "var(--text-2)", accentColor: "var(--text-2)",   title: "Automate &amp; connect",       sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" },
-        { label: "Horizon 3 · 9–18 months", accent: "var(--black)", accentColor: "var(--black)",    title: "Platform for $1B",             sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" }
-      ],
-      note: "This slide will be fully populated in the Salesforce follow-up brief · Priorities confirmed in today's session will drive the sequencing"
+      commit: “<strong>Salesforce commits:</strong> A written follow-up brief within 14 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session.”
     },
 
     // ─── S10: THANK YOU ──────────────────────────────────────────────────────
     {
       id:    "s10",
       type:  "thankyou",
-      topbarLabel: "JB Hi-Fi Business × Salesforce · 2026",
+      topbarLabel: "JB Hi-Fi × Salesforce · 2026",
       heading: "Thank you",
       subtext: "Together toward $1B",
       footer:  "Follow-up brief within 14 days &nbsp;·&nbsp; JB Hi-Fi B2B Executive · 2026 &nbsp;·&nbsp; Confidential"
@@ -1101,22 +1102,12 @@ const DECK_CONFIG = {
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
         <div style="width:100%;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;">Before vs after</div>
-          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;">
-            <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);">
-              <div style="font-family:'Comfortaa',sans-serif;font-size:32px;font-weight:700;color:var(--pain-red);margin-bottom:8px;">5–10 min</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Creating a new opportunity today — dozens of mandatory fields, slow form, high friction</div>
-            </div>
-            <div style="font-size:28px;color:var(--jb-yellow);">→</div>
-            <div style="padding:20px;background:var(--white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
-              <div style="font-family:'Comfortaa',sans-serif;font-size:32px;font-weight:700;color:var(--jb-green);margin-bottom:8px;">&lt; 60s</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Guided screen flow capturing only what matters — rep focused on the customer, not the form</div>
-            </div>
-          </div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;">Current State</div>
           <div style="margin-top:24px;padding:16px 20px;background:var(--off-white);border-radius:var(--radius);border-left:3px solid var(--jb-yellow);">
             <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Observed directly during ridealong: the current opportunity form has too many mandatory fields and is the primary source of friction reported by BDMs and inside sales reps.</div>
           </div>
         </div>
+        <img src='./assets/images/JBHIFI_OpportunityScreen.png'><img>
       `,
       sections: [
         {
@@ -1350,7 +1341,8 @@ const DECK_CONFIG = {
       title:  "Quote expiry automation",
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
-        <div style="width:100%;">
+      <img src='./assets/images/quoteexpiry.png' style='width: 60%; height: auto;'><img>  
+      <div style="width:100%;">
           <div style="padding:28px;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);text-align:center;margin-bottom:20px;">
             <div style="font-size:14px;color:var(--text-2);margin-bottom:16px;">Current process</div>
             <div style="display:flex;flex-direction:column;gap:10px;text-align:left;">
