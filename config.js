@@ -831,66 +831,66 @@ const DECK_CONFIG = {
 
     // ─── S9impl: IMPLEMENTATION PLAN (placeholder) ───────────────────────────
     {
-      id:    “s9impl”,
-      type:  “placeholder”,
-      topbarLabel: “Implementation plan”,
-      kicker: “Roadmap”,
-      title:  “Implementation <span class=\”hl\”>plan</span>”,
-      slideN: “09”,
+      id:    "s9impl",
+      type:  "placeholder",
+      topbarLabel: "Implementation plan",
+      kicker: "Roadmap",
+      title:  "Implementation <span class=\"hl\">plan</span>",
+      slideN: "09",
       banner: {
-        eyebrow: “Coming soon”,
-        heading: “Implementation plan”,
-        text: “Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 14 days.”
+        eyebrow: "Coming soon",
+        heading: "Implementation plan",
+        text: "Detailed roadmap to be confirmed following today's prioritisation exercise.<br>Salesforce will include this in the follow-up brief within 14 days."
       },
       columns: [
-        { label: “Horizon 1 · 0–90 days”, accent: “var(--jb-green)”, accentColor: “var(--jb-green)”, title: “Quick wins &amp; remediation”, sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” },
-        { label: “Horizon 2 · 3–9 months”, accent: “var(--text-2)”, accentColor: “var(--text-2)”,   title: “Automate &amp; connect”,       sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” },
-        { label: “Horizon 3 · 9–18 months”, accent: “var(--black)”, accentColor: “var(--black)”,    title: “Platform for $1B”,             sub: “To be populated following prioritisation exercise”, tbc: “Workstream detail TBC” }
+        { label: "Horizon 1 · 0–90 days", accent: "var(--jb-green)", accentColor: "var(--jb-green)", title: "Quick wins &amp; remediation", sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" },
+        { label: "Horizon 2 · 3–9 months", accent: "var(--text-2)", accentColor: "var(--text-2)",   title: "Automate &amp; connect",       sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" },
+        { label: "Horizon 3 · 9–18 months", accent: "var(--black)", accentColor: "var(--black)",    title: "Platform for $1B",             sub: "To be populated following prioritisation exercise", tbc: "Workstream detail TBC" }
       ],
-      note: “This slide will be fully populated in the Salesforce follow-up brief · Priorities confirmed in today's session will drive the sequencing”
+      note: "This slide will be fully populated in the Salesforce follow-up brief · Priorities confirmed in today's session will drive the sequencing"
     },
 
     // ─── S8: NORTH STAR ──────────────────────────────────────────────────────
     {
-      id:    “s8”,
-      type:  “north_star”,
-      topbarLabel: “Where we go from here”,
-      kicker: “Where we go from here”,
-      title:  “North star &amp; <span class=\”hl\”>next steps</span>”,
-      slideN: “08”,
-      vision: “A JB Hi-Fi commercial organisation where <strong>every rep, marketer and service agent</strong> is equipped with the right insight at the right moment &mdash; powered by unified data and autonomous AI &mdash; so the team that built a $500M business <strong>can build a $1B one</strong>.”,
+      id:    "s8",
+      type:  "north_star",
+      topbarLabel: "Where we go from here",
+      kicker: "Where we go from here",
+      title:  "North star &amp; <span class=\"hl\">next steps</span>",
+      slideN: "08",
+      vision: "A JB Hi-Fi commercial organisation where <strong>every rep, marketer and service agent</strong> is equipped with the right insight at the right moment &mdash; powered by unified data and autonomous AI &mdash; so the team that built a $500M business <strong>can build a $1B one</strong>.",
       actions: [
         {
-          title: “Confirm top priorities from today”,
-          sub:   “Named owners, clear next action from the prioritisation exercise”,
-          owner: “Both”,
-          ownerClass: “own-b”
+          title: "Confirm top priorities from today",
+          sub:   "Named owners, clear next action from the prioritisation exercise",
+          owner: "Both",
+          ownerClass: "own-b"
         },
         {
-          title: “Salesforce follow-up brief within 14 days”,
-          sub:   “Detailed recommendations with Horizon 1 action plan”,
-          owner: “Salesforce”,
-          ownerClass: “own-sf”
+          title: "Salesforce follow-up brief within 14 days",
+          sub:   "Detailed recommendations with Horizon 1 action plan",
+          owner: "Salesforce",
+          ownerClass: "own-sf"
         },
         {
-          title: “Technical platform session — separate booking”,
-          sub:   “Clean org path, Data Cloud architecture, timeline &amp; investment”,
-          owner: “Salesforce”,
-          ownerClass: “own-sf”
+          title: "Technical platform session — separate booking",
+          sub:   "Clean org path, Data Cloud architecture, timeline &amp; investment",
+          owner: "Salesforce",
+          ownerClass: "own-sf"
         },
         {
-          title: “Horizon 1 delivery begins”,
-          sub:   “First items scoped and scheduled — results visible in 90 days”,
-          owner: “Both”,
-          ownerClass: “own-b”
+          title: "Horizon 1 delivery begins",
+          sub:   "First items scoped and scheduled — results visible in 90 days",
+          owner: "Both",
+          ownerClass: "own-b"
         }
       ],
       closing: {
-        label:    “The closing question”,
-        question: “”What would make this feel like a genuinely different kind of partnership?””,
-        sub:      “We know the relationship hasn't always been at its best. We're asking you to define what better looks like — and committing to deliver it.”
+        label:    "The closing question",
+        question: `"What would make this feel like a genuinely different kind of partnership?"`,
+        sub:      "We know the relationship hasn't always been at its best. We're asking you to define what better looks like — and committing to deliver it."
       },
-      commit: “<strong>Salesforce commits:</strong> A written follow-up brief within 14 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session.”
+      commit: "<strong>Salesforce commits:</strong> A written follow-up brief within 14 days covering your confirmed priorities, Horizon 1 action plan, and a proposed agenda for the technical platform session."
     },
 
     // ─── S10: THANK YOU ──────────────────────────────────────────────────────
