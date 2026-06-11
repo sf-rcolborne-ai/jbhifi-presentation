@@ -1107,7 +1107,7 @@ const DECK_CONFIG = {
             <div style="font-size:13px;color:var(--text-2);line-height:1.7;">Observed directly during ridealong: the current opportunity form has too many mandatory fields and is the primary source of friction reported by BDMs and inside sales reps.</div>
           </div>
         </div>
-        <img src='./assets/images/JBHIFI_OpportunityScreen.png'><img>
+        <img src='./assets/images/JBHIFI_OpportunityScreen.png'>
       `,
       sections: [
         {
@@ -1341,7 +1341,7 @@ const DECK_CONFIG = {
       title:  "Quote expiry automation",
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
-      <img src='./assets/images/quoteexpiry.png' style='width: 60%; height: auto;'><img>  
+      <img src='./assets/images/quoteexpiry.png' style='width: 60%; height: auto;'>
       <div style="width:100%;">
           <div style="padding:28px;background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);text-align:center;margin-bottom:20px;">
             <div style="font-size:14px;color:var(--text-2);margin-bottom:16px;">Current process</div>
