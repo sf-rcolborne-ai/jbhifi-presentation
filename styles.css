@@ -98,7 +98,7 @@ html, body { width:100%; height:100%; overflow:hidden; background:#E8E8E4; font-
   font-family:'Comfortaa',sans-serif; font-size:80px; font-weight:700;
   color:var(--rule); line-height:1; user-select:none; letter-spacing:-0.02em;
 }
-.slide-content { flex:1; padding:24px 56px; overflow:hidden; min-height:0; }
+.slide-content { flex:1; padding:24px 56px; overflow:hidden; min-height:0; position:relative; }
 
 /* ══════════════════════════════════
    SLIDE 1 — COVER
@@ -603,6 +603,9 @@ html, body { width:100%; height:100%; overflow:hidden; background:#E8E8E4; font-
 .drawer-title {
   font-family:'Comfortaa',sans-serif; font-size:22px; font-weight:700;
   color:var(--black); line-height:1.15;
+}
+.drawer-subtitle {
+  font-size:13px; font-weight:400; color:var(--text-2); margin-top:4px;
 }
 .drawer-close {
   width:36px; height:36px; border-radius:50%;

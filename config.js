@@ -466,6 +466,7 @@ const DECK_CONFIG = {
       kicker: "Ridealong findings",
       title:  "The end-to-end <span class=\"hl\">manual</span> journey",
       slideN: "02",
+      icebreakerDrawerId: "drawer-icebreaker",
       metrics: [
         { value: "Almost 10  mins",        label: "For observed order fulfilment",          source: "Observed · Service ridealong" },
          { value: "4,500+",      label: "Manual reports maintained by finance",       source: "Observed · Reporting findings" },
@@ -640,7 +641,7 @@ const DECK_CONFIG = {
           title:     "Platform for $1B",
           sub:       "Strategic transformation",
           items: [
-            "Data Cloud — unified customer, product &amp; fulfilment data",
+            "Data 360 — unified customer, product &amp; fulfilment data",
             "Agentic SDR — non-ICP leads handled end-to-end autonomously",
             "Agentic service — autonomous resolution for common cases",
             "Connected retail agent experience across all B2B channels",
@@ -765,7 +766,7 @@ const DECK_CONFIG = {
               drawerId: "dstr-rev",
               title:    "Predictive revenue intelligence",
               desc:     "Deal scoring, churn risk signals, upsell propensity and next best action — in the rep's workflow. A pipeline leadership can actually trust, built on unified data.",
-              tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "Data Cloud", cls: "rtag-d" }]
+              tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "Data 360", cls: "rtag-d" }]
             },
             {
               drawerId: "dstr-agentic",
@@ -776,7 +777,7 @@ const DECK_CONFIG = {
             {
               drawerId: "dstr-cleanorg",
               title:    "Clean org — the platform for $1B",
-              desc:     "A structured migration removes managed package debt, unlocks full Data Cloud and AgentForce capability, and sets the technical foundation for doubling the business.",
+              desc:     "A structured migration removes managed package debt, unlocks full Data 360 and AgentForce capability, and sets the technical foundation for doubling the business.",
               tags: [{ label: "Strategic", cls: "rtag-d" }, { label: "$1B platform", cls: "rtag-y" }]
             }
           ]
@@ -808,7 +809,7 @@ const DECK_CONFIG = {
         { id: "op5",  label: "AgentForce quoting agent",          q: "s" },
         { id: "op6",  label: "Service AI assist — Customer 360",  q: "v" },
         { id: "op7",  label: "Conversation Intelligence",         q: "s" },
-        { id: "op8",  label: "Data Cloud — unified foundation",   q: "d" },
+        { id: "op8",  label: "Data 360 — unified foundation",   q: "d" },
         { id: "op9",  label: "Predictive revenue intelligence",   q: "d" },
         { id: "op10", label: "Behavioural marketing",             q: "m" },
         { id: "op11", label: "Skills-based case routing",         q: "v" },
@@ -874,7 +875,7 @@ const DECK_CONFIG = {
         },
         {
           title: "Technical platform session — separate booking",
-          sub:   "Clean org path, Data Cloud architecture, timeline &amp; investment",
+          sub:   "Clean org path, Data 360 architecture, timeline &amp; investment",
           owner: "Salesforce",
           ownerClass: "own-sf"
         },
@@ -907,6 +908,28 @@ const DECK_CONFIG = {
 
   // ── DRAWERS ────────────────────────────────────────────────────────────────
   drawers: {
+
+    // ─── ICEBREAKER DRAWER ────────────────────────────────────────────────────
+
+    "drawer-icebreaker": {
+      kicker: "Before we begin",
+      title:  "Icebreaker Exercise",
+      subtitle: "Draw your journey — processes as transport",
+      image:  {
+        src: "./assets/images/icebreakersketch.png",
+        alt: "Icebreaker sketch — draw your journey"
+      },
+      sections: [
+        {
+          label: "Icebreaker",
+          content: [
+            { type: "paragraph", text: "Draw a vehicle that represents your commercial processes today. Label the parts that work, and the parts that are broken, overloaded, or holding you back." },
+            { type: "paragraph", text: "You have a few minutes for this exercise. We will then go around the room to ask each of you to explain what you have drawn." },
+            { type: "paragraph", text: "<strong>Be creative!</strong>" }
+          ]
+        }
+      ]
+    },
 
     // ─── FLYWHEEL DRAWERS ─────────────────────────────────────────────────────
 
@@ -1086,7 +1109,7 @@ const DECK_CONFIG = {
                 "AgentForce quoting — deals closed faster when quotes take seconds not 5–10 minutes",
                 "Predictive revenue intelligence — deal scoring, churn signals and upsell triggers in the rep workflow",
                 "Agentic SDR — non-ICP leads handled autonomously, BDMs focused on high-value opportunities",
-                "Data Cloud — unified customer data enabling cross-sell and personalisation at scale"
+                "Data 360 — unified customer data enabling cross-sell and personalisation at scale"
               ]
             }
           ]
@@ -1496,6 +1519,10 @@ const DECK_CONFIG = {
     "dtac-mktg": {
       kicker: "Tactical · 3–9 months",
       title:  "Behavioural marketing segmentation",
+            video: {
+        type: "local",
+        url: "./assets/videos/AgenticSegmentation.mp4"
+      },
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
         <div style="width:100%;">
@@ -1529,7 +1556,7 @@ const DECK_CONFIG = {
                 "Higher engagement — messages timed to customer intent signals",
                 "Measurable pipeline contribution from marketing activity",
                 "Reduced unsubscribes from irrelevant broadcast emails",
-                "Foundation for personalisation at scale as Data Cloud matures"
+                "Foundation for personalisation at scale as Data 360 matures"
               ]
             }
           ]
@@ -1614,6 +1641,10 @@ const DECK_CONFIG = {
     "dstr-dc": {
       kicker: "Tactical · 3–9 months",
       title:  "Data 360 — the unified foundation",
+      video: {
+        type: "local",
+        url: "./assets/videos/data360.mp4"
+      },
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
         <div style="width:100%;">
@@ -1632,7 +1663,7 @@ const DECK_CONFIG = {
         {
           label: "What it does",
           content: [
-            { type: "paragraph", text: "Salesforce Data Cloud unifies customer data from every source — Salesforce, Excel, the product app, the fulfilment application, and any other system — into a single, real-time Customer 360 profile." },
+            { type: "paragraph", text: "Salesforce Data 360 unifies customer data from every source — Salesforce, Excel, the product app, the fulfilment application, and any other system — into a single, real-time Customer 360 profile." },
             { type: "paragraph", text: "This is the <strong>data foundation that makes every other AI capability more accurate</strong> — AgentForce, Predictive Intelligence, and behavioural marketing all become significantly more powerful when grounded in unified data." }
           ]
         },
@@ -1642,7 +1673,7 @@ const DECK_CONFIG = {
             {
               type: "bullet-list",
               items: [
-                "The current org's managed package complexity limits Data Cloud integration depth",
+                "The current org's managed package complexity limits Data 360 integration depth",
                 "A clean org migration is the prerequisite — addressed in the technical platform session",
                 "The investment unlocks the full $1B platform capability"
               ]
@@ -1688,7 +1719,7 @@ const DECK_CONFIG = {
                 "BDMs focused on deals that move the needle toward $1B",
                 "No leads fall through — agent handles the long tail consistently",
                 "Scales revenue capacity without proportional headcount growth",
-                "Requires Data Cloud unified data for personalised agent interactions"
+                "Requires Data 360 unified data for personalised agent interactions"
               ]
             }
           ]
@@ -1707,7 +1738,7 @@ const DECK_CONFIG = {
         {
           label: "What it does",
           content: [
-            { type: "paragraph", text: "Built on Data Cloud unified data, Predictive Revenue Intelligence surfaces deal scores, churn risk signals, upsell propensity and next best actions directly in the rep's Salesforce workflow." },
+            { type: "paragraph", text: "Built on Data 360 unified data, Predictive Revenue Intelligence surfaces deal scores, churn risk signals, upsell propensity and next best actions directly in the rep's Salesforce workflow." },
             { type: "paragraph", text: "Leadership gets a pipeline they can actually trust — with real predictive signals rather than rep gut-feel stage updates." }
           ]
         },
@@ -1791,7 +1822,7 @@ const DECK_CONFIG = {
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:8px;">
             <div style="padding:10px 14px;background:rgba(200,0,26,0.05);border:1px solid rgba(200,0,26,0.15);border-radius:4px;font-size:12px;color:var(--text-2);">✗ Managed packages adding technical debt</div>
             <div style="padding:10px 14px;background:rgba(200,0,26,0.05);border:1px solid rgba(200,0,26,0.15);border-radius:4px;font-size:12px;color:var(--text-2);">✗ Heavy customisation blocking upgrades</div>
-            <div style="padding:10px 14px;background:rgba(200,0,26,0.05);border:1px solid rgba(200,0,26,0.15);border-radius:4px;font-size:12px;color:var(--text-2);">✗ Data Cloud and AgentForce constrained by org complexity</div>
+            <div style="padding:10px 14px;background:rgba(200,0,26,0.05);border:1px solid rgba(200,0,26,0.15);border-radius:4px;font-size:12px;color:var(--text-2);">✗ Data 360 and AgentForce constrained by org complexity</div>
             <div style="padding:8px 0;text-align:center;font-size:14px;color:var(--rule);">↓</div>
             <div style="padding:10px 14px;background:rgba(2,135,3,0.05);border:1px solid rgba(2,135,3,0.2);border-radius:4px;font-size:12px;color:var(--jb-green);">✓ Structured migration — clean, scalable, future-ready</div>
           </div>
@@ -1801,7 +1832,7 @@ const DECK_CONFIG = {
         {
           label: "The context",
           content: [
-            { type: "paragraph", text: "JB Hi-Fi has built a $500M business on this Salesforce platform. That growth has created layers of customisation and managed packages that are now acting as a ceiling — limiting the ability to adopt Data Cloud, AgentForce, and modern Salesforce capabilities at full depth." },
+            { type: "paragraph", text: "JB Hi-Fi has built a $500M business on this Salesforce platform. That growth has created layers of customisation and managed packages that are now acting as a ceiling — limiting the ability to adopt Data 360, AgentForce, and modern Salesforce capabilities at full depth." },
             { type: "paragraph", text: "<strong>This is a growth signal, not a failure.</strong> A structured clean org migration removes the debt and sets the technical foundation for doubling the business." }
           ]
         },
@@ -1811,7 +1842,7 @@ const DECK_CONFIG = {
             {
               type: "bullet-list",
               items: [
-                "Full Data Cloud integration — unified Customer 360 without constraints",
+                "Full Data 360 integration — unified Customer 360 without constraints",
                 "AgentForce at full capability — agents grounded in clean, unified data",
                 "Faster platform upgrades — no managed package conflicts",
                 "Predictive Intelligence built on trustworthy data foundations"

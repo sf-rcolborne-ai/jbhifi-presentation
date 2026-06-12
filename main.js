@@ -439,6 +439,7 @@ function renderDrawer(id,config){
   const headLeft=el('div',{class:'drawer-head-left'});
   if(config.kicker)headLeft.appendChild(el('div',{class:'drawer-kicker'},config.kicker));
   headLeft.appendChild(el('div',{class:'drawer-title'},config.title));
+  if(config.subtitle)headLeft.appendChild(el('div',{class:'drawer-subtitle'},config.subtitle));
   const closeBtn=el('div',{class:'drawer-close'},'×');
   closeBtn.onclick=closeDrawer;
   head.append(headLeft,closeBtn);
@@ -659,6 +660,10 @@ function renderFindingsSlide(config){
         </div>
       `).join('')}
     </div>
+    ${config.icebreakerDrawerId ? `
+    <div style="position:absolute;bottom:32px;right:40px;">
+      <button class="callout-btn" onclick="openDrawer('${config.icebreakerDrawerId}')" style="background:var(--jb-yellow);border:none;border-radius:var(--radius);padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--black);cursor:pointer;letter-spacing:0.02em;">Icebreaker</button>
+    </div>` : ''}
   `;
   inner.appendChild(content);
   body.appendChild(inner);
