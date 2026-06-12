@@ -614,6 +614,15 @@ const DECK_CONFIG = {
         "Give your agent a title that reflects the role they play — something you'd actually put on a job board.",
         "Fill in the template on the right. Bullet points and rough ideas are fine."
       ],
+      shareback: {
+        label: "Share-back — when you present to the group",
+        prompt: "Try to cover these three things:",
+        pills: [
+          "What's the job title?",
+          "What problem does it solve?",
+          "What do you get back to focus on?"
+        ]
+      },
       fields: [
         { label: "Job title",                  hint: "e.g. \"Quote Follow-Up Agent\" / \"Weekly Reporting Agent\" / \"New Account Research Agent\"", lines: 1 },
         { label: "Role overview",              hint: "1–2 sentences: what does this agent do, and why does the team need it?",                        lines: 2 },

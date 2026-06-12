@@ -795,6 +795,14 @@ function renderWorkshopSlide(config){
             </div>
           `).join('')}
         </div>
+        ${config.shareback?`
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:14px 16px;flex-shrink:0;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px;">${config.shareback.label}</div>
+          <div style="font-size:12px;color:var(--text-2);margin-bottom:10px;">${config.shareback.prompt}</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            ${config.shareback.pills.map(p=>`<span style="background:var(--white);border:1px solid var(--rule);border-radius:999px;font-size:12px;color:var(--text-2);padding:5px 14px;white-space:nowrap;">${p}</span>`).join('')}
+          </div>
+        </div>`:''}
         ${config.exampleDrawerId?`
         <div style="margin-top:auto;padding-top:8px;">
           <button onclick="openDrawer('${config.exampleDrawerId}')" style="padding:9px 18px;border:1px solid var(--jb-green);background:var(--white);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--jb-green);cursor:pointer;letter-spacing:0.02em;transition:all 0.15s;" onmouseover="this.style.background='var(--jb-green)';this.style.color='#fff';" onmouseout="this.style.background='var(--white)';this.style.color='var(--jb-green)';">See example JD &rarr;</button>
