@@ -959,9 +959,9 @@ const DECK_CONFIG = {
           <div style="font-family:'Comfortaa',sans-serif;font-size:20px;font-weight:700;color:var(--black);line-height:1.25;margin-bottom:6px;">Quote Follow-Up &amp; Pipeline Integrity Agent</div>
           <div style="font-size:13px;color:var(--text-2);margin-bottom:14px;">JB Hi-Fi Business &middot; B2B Sales Operations</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
-            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Agentforce</span>
-            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Salesforce CRM</span>
-            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">AI-assisted</span>
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Quotes</span>
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Communications</span>
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Pipeline</span>
           </div>
           <div style="padding:14px 16px;background:var(--off-white);border-left:3px solid var(--jb-yellow);border-radius:0 var(--radius) var(--radius) 0;">
             <div style="font-size:13px;color:var(--text-2);line-height:1.6;">This agent supports the B2B sales team by monitoring open quotes, following up with prospects at the right time, and maintaining accurate pipeline records in Salesforce — so account managers can focus on high-value conversations rather than chasing paperwork.</div>
@@ -970,28 +970,28 @@ const DECK_CONFIG = {
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">Key responsibilities</div>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Monitors all open quotes and flags those approaching expiry or with no response after 3 business days</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Sends personalised follow-up emails on behalf of the account manager at pre-set intervals, using approved templates</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Updates opportunity stage and close date in Salesforce based on customer engagement signals</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Compiles a daily pipeline health summary — highlighting stalled deals, at-risk opportunities, and wins requiring cleanup</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Cross-checks pipeline values against the prior week and surfaces anomalies that may indicate data entry errors</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Monitors all open quotes and flags those approaching expiry or with no response after 3 business days</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Sends personalised follow-up emails on behalf of the account manager at pre-set intervals, using approved templates</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Updates opportunity stage and close date in Salesforce based on customer engagement signals</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Compiles a daily pipeline health summary — highlighting stalled deals, at-risk opportunities, and wins requiring cleanup</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Cross-checks pipeline values against the prior week and surfaces anomalies that may indicate data entry errors</li>
           </ul>
         </div>
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">What it hands back to you</div>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>A daily digest: stalled deals, overdue follow-ups, and pipeline exceptions to review</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Pre-drafted follow-up emails ready to review and send — or already sent if approved in advance</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>A weekly pipeline summary ready to present in your sales review — no manual report pulling required</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>A daily digest: stalled deals, overdue follow-ups, and pipeline exceptions to review</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>Pre-drafted follow-up emails ready to review and send — or already sent if approved in advance</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--jb-green);font-weight:700;flex-shrink:0;">✓</span>A weekly pipeline summary ready to present in your sales review — no manual report pulling required</li>
           </ul>
         </div>
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">What it can't do (and shouldn't try)</div>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Negotiate pricing or approve discounts — that's a human call every time</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Manage a complex or sensitive customer escalation — those need a real conversation</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Decide whether to walk away from a deal or invest more time — that judgement belongs to the account manager</li>
-            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Build the customer relationship — it can support it, not replace it</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--pain-red);font-weight:700;flex-shrink:0;">×</span>Negotiate pricing or approve discounts — that's a human call every time</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--pain-red);font-weight:700;flex-shrink:0;">×</span>Manage a complex or sensitive customer escalation — those need a real conversation</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--pain-red);font-weight:700;flex-shrink:0;">×</span>Decide whether to walk away from a deal or invest more time — that judgement belongs to the account manager</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;display:flex;gap:8px;align-items:flex-start;"><span style="color:var(--pain-red);font-weight:700;flex-shrink:0;">×</span>Build the customer relationship — it can support it, not replace it</li>
           </ul>
         </div>
       `,
