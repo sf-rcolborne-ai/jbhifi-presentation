@@ -952,7 +952,7 @@ const DECK_CONFIG = {
       kicker: "Workshop reference",
       title:  "Example agent JD",
       subtitle: "Use this as a reference — not a template to copy",
-      imageStyle: "padding:28px;flex-direction:column;justify-content:flex-start;gap:20px;overflow-y:auto;",
+      imageStyle: "padding:28px;flex-direction:column;justify-content:flex-start;align-items:flex-start;gap:20px;overflow-y:auto;",
       imageHtml: `
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">Position description</div>
