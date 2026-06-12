@@ -68,6 +68,7 @@ function drop(e,qid){
   q.appendChild(chip);
   const orig=document.getElementById(id);if(orig)orig.classList.add("done");
   dragged=null;
+  saveMatrixState();
 }
 
 /* ── PRIORITY LIST (S7b) ── */
@@ -143,6 +144,7 @@ function dropPriority(e){
   list.appendChild(item);
   renumberPriorities();
   dragged=null;
+  savePriorityState();
 }
 
 function removePriorityItem(btn){
@@ -153,6 +155,7 @@ function removePriorityItem(btn){
     h.style.cssText="font-size:13px;color:#9A9A94;font-style:italic;text-align:center;padding:20px 0;";
     h.textContent="Drop your game changers here and arrange in priority order";list.appendChild(h);
   }
+  savePriorityState();
 }
 function renumberPriorities(){
   document.querySelectorAll("#priority-list .priority-item").forEach((item,i)=>{
@@ -164,6 +167,7 @@ function clearPriorities(){
   const h=document.createElement("div");h.id="priority-empty";
   h.style.cssText="font-size:13px;color:#9A9A94;font-style:italic;text-align:center;padding:20px 0;";
   h.textContent="Drop your game changers here and arrange in priority order";list.appendChild(h);
+  savePriorityState();
 }
 
 function refreshGameChangers(){
@@ -195,6 +199,7 @@ function resetBoard(){
     const q=document.getElementById(qid);if(q)q.querySelectorAll(".opp-chip").forEach(c=>c.remove());
   });
   document.querySelectorAll(".bl-chip").forEach(c=>c.classList.remove("done"));
+  saveMatrixState();
 }
 function resetAll(){resetBoard();}
 
@@ -246,6 +251,97 @@ function addCustomChip(){
   document.getElementById("bl-chips").appendChild(btn);
   input.value="";
   document.getElementById("bl-chips").scrollTop=99999;
+  saveMatrixState();
+}
+
+/* ── WORKSHOP STATE — localStorage persistence & CSV export ── */
+function saveMatrixState(){
+  const state={tl:[],tr:[],bl:[],br:[],custom:[],customCount};
+  ['tl','tr','bl','br'].forEach(q=>{
+    document.querySelectorAll(`#q-${q} .opp-chip`).forEach(c=>
+      state[q].push({id:c.id,label:c.dataset.label,qtype:c.dataset.q}));
+  });
+  document.querySelectorAll('#bl-chips .bl-chip').forEach(c=>{
+    if(c.id&&c.id.startsWith('custom-'))
+      state.custom.push({id:c.id,label:c.dataset.label});
+  });
+  localStorage.setItem('jbhifi_matrix',JSON.stringify(state));
+}
+
+function savePriorityState(){
+  const items=[];
+  document.querySelectorAll('#priority-list .priority-item').forEach((item,i)=>
+    items.push({rank:i+1,label:item.dataset.label}));
+  localStorage.setItem('jbhifi_priorities',JSON.stringify(items));
+}
+
+function restoreMatrixState(){
+  const raw=localStorage.getItem('jbhifi_matrix');
+  if(!raw)return;
+  const state=JSON.parse(raw);
+  customCount=state.customCount||0;
+  (state.custom||[]).forEach(c=>{
+    const btn=document.createElement('button');
+    btn.className='bl-chip';btn.draggable=true;btn.id=c.id;
+    btn.dataset.label=c.label;btn.dataset.q='s';
+    btn.textContent=c.label+' ✶';btn.ondragstart=drag;
+    document.getElementById('bl-chips').appendChild(btn);
+  });
+  ['tl','tr','bl','br'].forEach(q=>{
+    (state[q]||[]).forEach(c=>{
+      const span=document.createElement('span');
+      span.className=`opp-chip ${qClass[c.qtype]||'ch-s'} placed-${c.id}`;
+      span.id='p-'+c.id;span.dataset.label=c.label;span.dataset.q=c.qtype||'s';
+      span.draggable=true;span.ondragstart=drag;
+      const labelSpan=document.createElement('span');labelSpan.textContent=c.label;
+      const removeBtn=document.createElement('button');
+      removeBtn.className='chip-remove';removeBtn.textContent='×';removeBtn.title='Remove';
+      removeBtn.onclick=(e)=>{
+        e.stopPropagation();span.remove();
+        const orig=document.getElementById(c.id);if(orig)orig.classList.remove('done');
+        saveMatrixState();
+      };
+      span.append(labelSpan,removeBtn);
+      document.getElementById(`q-${q}`).appendChild(span);
+      const src=document.getElementById(c.id);if(src)src.classList.add('done');
+    });
+  });
+}
+
+function restorePriorityState(){
+  const raw=localStorage.getItem('jbhifi_priorities');
+  if(!raw)return;
+  const items=JSON.parse(raw);
+  if(!items.length)return;
+  const empty=document.getElementById('priority-empty');if(empty)empty.remove();
+  items.forEach(item=>{
+    document.getElementById('priority-list').appendChild(makePriorityItem(item.label));
+  });
+  renumberPriorities();
+}
+
+function downloadCSV(filename,rows){
+  const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download=filename;a.click();URL.revokeObjectURL(a.href);
+}
+
+function exportMatrixCSV(){
+  const labels={tl:'Quick fixes',tr:'Game changers',bl:'Reassess',br:'Strategic future'};
+  const rows=[['Quadrant','Item']];
+  ['tr','tl','br','bl'].forEach(q=>{
+    document.querySelectorAll(`#q-${q} .opp-chip`).forEach(c=>
+      rows.push([labels[q],c.dataset.label]));
+  });
+  downloadCSV('urgency-matrix.csv',rows);
+}
+
+function exportPrioritiesCSV(){
+  const rows=[['Rank','Priority']];
+  document.querySelectorAll('#priority-list .priority-item').forEach((item,i)=>
+    rows.push([i+1,item.dataset.label]));
+  downloadCSV('priorities.csv',rows);
 }
 
 /* ── DRAWER SYSTEM ── */
@@ -309,6 +405,10 @@ function renderDeck(){
   // Wire S7 custom input Enter key
   const inp=document.getElementById("bl-custom-input");
   if(inp){inp.addEventListener("keydown",function(e){e.stopPropagation();if(e.key==="Enter"){e.preventDefault();addCustomChip();}});}
+
+  // Restore workshop state from localStorage
+  restoreMatrixState();
+  restorePriorityState();
 }
 
 /* ── SLIDE DISPATCH ── */
@@ -858,7 +958,10 @@ function renderMatrixSlide(config){
             <button class="bl-add-btn" onclick="addCustomChip()">+</button>
           </div>
         </div>
-        <button onclick="resetBoard()" style="padding:8px;border:1px solid var(--rule);background:var(--white);border-radius:var(--radius);font-size:12px;cursor:pointer;color:var(--text-2);flex-shrink:0;">&#8635; Reset board</button>
+        <div style="display:flex;gap:6px;flex-shrink:0;">
+          <button onclick="resetBoard()" style="flex:1;padding:8px;border:1px solid var(--rule);background:var(--white);border-radius:var(--radius);font-size:12px;cursor:pointer;color:var(--text-2);">&#8635; Reset board</button>
+          <button onclick="exportMatrixCSV()" style="flex:1;padding:8px;border:1px solid var(--jb-green);background:var(--white);border-radius:var(--radius);font-size:12px;cursor:pointer;color:var(--jb-green);font-weight:600;">&#8595; Export CSV</button>
+        </div>
       </div>
       <div style="position:relative;padding-left:48px;padding-bottom:28px;height:100%;">
         <div class="axis-y">${config.axisY}</div>
@@ -913,7 +1016,10 @@ function renderPrioritiesSlide(config){
           style="flex:1;min-height:0;border:2px dashed var(--rule);border-radius:var(--radius);padding:14px;overflow-y:auto;background:var(--off-white);transition:all 0.2s;display:flex;flex-direction:column;gap:6px;">
           <div style="font-size:13px;color:var(--text-3);font-style:italic;text-align:center;padding:20px 0;margin:auto 0;" id="priority-empty">Drop your game changers here and arrange in priority order</div>
         </div>
-        <button onclick="clearPriorities()" style="margin-top:10px;padding:9px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--white);color:var(--text-3);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;flex-shrink:0;" onmouseover="this.style.borderColor='var(--pain-red)';this.style.color='var(--pain-red)';" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--text-3)';">Clear all priorities</button>
+        <div style="display:flex;gap:6px;margin-top:10px;flex-shrink:0;">
+          <button onclick="clearPriorities()" style="flex:1;padding:9px;border:1px solid var(--rule);border-radius:var(--radius);background:var(--white);color:var(--text-3);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--pain-red)';this.style.color='var(--pain-red)';" onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--text-3)';">Clear all</button>
+          <button onclick="exportPrioritiesCSV()" style="flex:1;padding:9px;border:1px solid var(--jb-green);border-radius:var(--radius);background:var(--white);color:var(--jb-green);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.15s;" onmouseover="this.style.background='var(--jb-green)';this.style.color='#fff';" onmouseout="this.style.background='var(--white)';this.style.color='var(--jb-green)';">&#8595; Export CSV</button>
+        </div>
       </div>
     </div>
   `;
