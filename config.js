@@ -601,11 +601,11 @@ const DECK_CONFIG = {
       type:  "workshop",
       topbarLabel: "Workshop exercise",
       kicker: "Workshop exercise",
-      title:  "Write a JD for your <span class=\"hl\">AI agent</span>",
+      title:  "Write a JD for your own <span class=\"hl\">AI agent</span>",
       slideN: "04b",
       exampleDrawerId: "drawer-agent-jd",
       brief: [
-        "AI won't replace the people in this room. But it can take on the repetitive, time-consuming work that gets in the way of the things only people can do.",
+        "AI won't replace the people. But it can take on the repetitive, time-consuming work that gets in the way of the things only people can do.",
         "Think about your day. The tasks that sit on your desk week after week — things you do because someone has to, but that don't actually need a human. That's your new hire's job."
       ],
       steps: [
@@ -617,7 +617,7 @@ const DECK_CONFIG = {
       fields: [
         { label: "Job title",                  hint: "e.g. \"Quote Follow-Up Agent\" / \"Weekly Reporting Agent\" / \"New Account Research Agent\"", lines: 1 },
         { label: "Role overview",              hint: "1–2 sentences: what does this agent do, and why does the team need it?",                        lines: 2 },
-        { label: "Key responsibilities",       hint: "3–5 things the agent does regularly. Use action verbs — monitors, compiles, sends, updates, flags.", lines: 4 },
+        { label: "Key responsibilities",       hint: "3–5 things the agent does regularly. Use action verbs — monitors, compiles, sends, updates, flags.", lines: 2 },
         { label: "What it hands back to you",  hint: "A summary, an alert, a draft, a report? How do you use it?",                                   lines: 2 },
         { label: "What it can't do",           hint: "Where does human judgement begin? Pricing decisions? Customer relationships? Escalations?",     lines: 2 }
       ]
