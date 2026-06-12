@@ -413,6 +413,7 @@ const DECK_CONFIG = {
     {
       id:       "s0",
       type:     "title",
+      title:    "Transforming the commercial experience — from friction to flow.",
       subtitle: "Accelerating B2B Growth for JB Hi-Fi",
       imagePath: null,
       metaItems: [
@@ -911,7 +912,7 @@ const DECK_CONFIG = {
           ownerClass: "own-sf"
         },
         {
-          title: "Technical platform session — separate booking",
+          title: "Technical platform session — separate meeting",
           sub:   "Clean org path, Data 360 architecture, timeline &amp; investment",
           owner: "Salesforce",
           ownerClass: "own-sf"

@@ -615,7 +615,7 @@ function renderTitleSlide(config){
       </div>
       <div style="width:72px;height:4px;background:var(--jb-yellow);border-radius:2px;margin-bottom:28px;"></div>
       <div style="font-family:'Comfortaa',sans-serif;font-size:clamp(36px,4.5vw,64px);font-weight:700;color:var(--black);line-height:1.15;letter-spacing:-0.02em;margin-bottom:16px;max-width:720px;">
-        ${meta.client}<br><span style="color:var(--text-2);font-size:0.75em;">× ${meta.partner}</span>
+        ${config.title||`${meta.client}<br><span style="color:var(--text-2);font-size:0.75em;">× ${meta.partner}</span>`}
       </div>
       <div style="font-size:18px;font-weight:400;color:var(--text-2);margin-bottom:8px;">${config.subtitle}</div>
       <div style="width:72px;height:4px;background:var(--jb-yellow);border-radius:2px;margin-bottom:36px;margin-top:20px;"></div>
