@@ -943,68 +943,50 @@ const DECK_CONFIG = {
       kicker: "Workshop reference",
       title:  "Example agent JD",
       subtitle: "Use this as a reference — not a template to copy",
-      imageStyle: "padding:0;flex-direction:column;justify-content:flex-start;background:var(--black);",
+      imageStyle: "padding:28px;flex-direction:column;justify-content:flex-start;gap:20px;overflow-y:auto;",
       imageHtml: `
-        <div style="padding:28px 28px 20px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
-          <div>
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:12px;">Position description</div>
-            <div style="font-family:'Comfortaa',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:8px;">Quote Follow-Up &amp; Pipeline Integrity Agent</div>
-            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;">JB Hi-Fi Business &middot; B2B Sales Operations</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">Agentforce</span>
-              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">Salesforce CRM</span>
-              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">AI-assisted</span>
-            </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">Position description</div>
+          <div style="font-family:'Comfortaa',sans-serif;font-size:20px;font-weight:700;color:var(--black);line-height:1.25;margin-bottom:6px;">Quote Follow-Up &amp; Pipeline Integrity Agent</div>
+          <div style="font-size:13px;color:var(--text-2);margin-bottom:14px;">JB Hi-Fi Business &middot; B2B Sales Operations</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Agentforce</span>
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">Salesforce CRM</span>
+            <span style="background:var(--off-white);color:var(--text-2);border:1px solid var(--rule);border-radius:4px;font-size:11px;padding:3px 10px;">AI-assisted</span>
           </div>
-          <div style="margin-top:24px;padding:16px;background:rgba(255,236,14,0.08);border:1px solid rgba(255,236,14,0.25);border-radius:var(--radius);">
-            <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">This agent supports the B2B sales team by monitoring open quotes, following up with prospects at the right time, and maintaining accurate pipeline records in Salesforce — so account managers can focus on high-value conversations rather than chasing paperwork.</div>
+          <div style="padding:14px 16px;background:var(--off-white);border-left:3px solid var(--jb-yellow);border-radius:0 var(--radius) var(--radius) 0;">
+            <div style="font-size:13px;color:var(--text-2);line-height:1.6;">This agent supports the B2B sales team by monitoring open quotes, following up with prospects at the right time, and maintaining accurate pipeline records in Salesforce — so account managers can focus on high-value conversations rather than chasing paperwork.</div>
           </div>
         </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">Key responsibilities</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Monitors all open quotes and flags those approaching expiry or with no response after 3 business days</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Sends personalised follow-up emails on behalf of the account manager at pre-set intervals, using approved templates</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Updates opportunity stage and close date in Salesforce based on customer engagement signals</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Compiles a daily pipeline health summary — highlighting stalled deals, at-risk opportunities, and wins requiring cleanup</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Cross-checks pipeline values against the prior week and surfaces anomalies that may indicate data entry errors</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">What it hands back to you</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>A daily digest: stalled deals, overdue follow-ups, and pipeline exceptions to review</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>Pre-drafted follow-up emails ready to review and send — or already sent if approved in advance</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--jb-green);font-weight:700;">✓</span>A weekly pipeline summary ready to present in your sales review — no manual report pulling required</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--rule);">What it can't do (and shouldn't try)</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Negotiate pricing or approve discounts — that's a human call every time</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Manage a complex or sensitive customer escalation — those need a real conversation</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Decide whether to walk away from a deal or invest more time — that judgement belongs to the account manager</li>
+            <li style="font-size:13px;color:var(--text-2);line-height:1.55;padding-left:16px;position:relative;"><span style="position:absolute;left:0;color:var(--pain-red);font-weight:700;">×</span>Build the customer relationship — it can support it, not replace it</li>
+          </ul>
+        </div>
       `,
-      sections: [
-        {
-          label: "Key responsibilities",
-          content: [
-            {
-              type: "bullet-list",
-              items: [
-                "Monitors all open quotes and flags those approaching expiry or with no customer response after 3 business days",
-                "Sends personalised follow-up emails on behalf of the account manager at pre-set intervals, using approved templates",
-                "Updates opportunity stage and close date in Salesforce based on customer engagement signals",
-                "Compiles a daily pipeline health summary — highlighting stalled deals, at-risk opportunities, and wins requiring data cleanup",
-                "Cross-checks pipeline values against the prior week and surfaces anomalies that may indicate data entry errors"
-              ]
-            }
-          ]
-        },
-        {
-          label: "What it hands back to you",
-          content: [
-            {
-              type: "bullet-list",
-              items: [
-                "A daily digest: stalled deals, overdue follow-ups, and pipeline exceptions to review",
-                "Pre-drafted follow-up emails ready to review and send — or already sent if approved in advance",
-                "A weekly pipeline summary ready to present in your sales review — no manual report pulling required"
-              ]
-            }
-          ]
-        },
-        {
-          label: "What it can't do (and shouldn't try)",
-          content: [
-            {
-              type: "bullet-list",
-              items: [
-                "Negotiate pricing or approve discounts — that's a human call every time",
-                "Manage a complex or sensitive customer escalation — those need a real conversation",
-                "Decide whether to walk away from a deal or invest more time — that judgement belongs to the account manager",
-                "Build the customer relationship — it can support it, not replace it"
-              ]
-            }
-          ]
-        }
-      ]
+      sections: []
     },
 
     // ─── ICEBREAKER DRAWER ────────────────────────────────────────────────────
