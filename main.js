@@ -376,7 +376,7 @@ function validateConfig(){
   const dupes=ids.filter((id,i)=>ids.indexOf(id)!==i);
   if(dupes.length)console.error('Duplicate slide IDs:',dupes);
   const drawerCount=Object.keys(DECK_CONFIG.drawers).length;
-  if(drawerCount!==20)console.warn('Expected 20 drawers, found',drawerCount);
+  if(drawerCount!==22)console.warn('Expected 22 drawers, found',drawerCount);
 }
 
 /* ── ENTRY POINT ── */
@@ -424,6 +424,7 @@ function renderSlide(config,index){
     flywheel:      renderFlywheelSlide,
     horizons:      renderHorizonsSlide,
     horizons_deep: renderHorizonsDeepSlide,
+    workshop:      renderWorkshopSlide,
     matrix:        renderMatrixSlide,
     priorities:    renderPrioritiesSlide,
     north_star:    renderNorthStarSlide,
@@ -764,6 +765,51 @@ function renderFindingsSlide(config){
     <div style="position:absolute;bottom:32px;right:40px;">
       <button class="callout-btn" onclick="openDrawer('${config.icebreakerDrawerId}')" style="background:var(--jb-yellow);border:none;border-radius:var(--radius);padding:10px 22px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--black);cursor:pointer;letter-spacing:0.02em;">Icebreaker</button>
     </div>` : ''}
+  `;
+  inner.appendChild(content);
+  body.appendChild(inner);
+  slide.appendChild(body);
+  return slide;
+}
+
+/* S4b — WORKSHOP EXERCISE */
+function renderWorkshopSlide(config){
+  const slide=slideShell(config);
+  const body=el('div',{class:'body'});
+  const inner=el('div',{class:'slide-inner'});
+  inner.appendChild(slideInnerHead(config));
+  const content=el('div',{class:'slide-content'});
+  content.style.cssText='padding:20px 40px;';
+  content.innerHTML=`
+    <div style="display:grid;grid-template-columns:2fr 3fr;gap:28px;height:100%;">
+      <div style="display:flex;flex-direction:column;gap:14px;overflow-y:auto;min-height:0;">
+        <div>
+          ${config.brief.map(p=>`<p style="font-size:13px;color:var(--text-2);line-height:1.65;margin-bottom:8px;">${p}</p>`).join('')}
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:14px 16px;flex-shrink:0;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px;">How to approach it</div>
+          ${config.steps.map((s,i)=>`
+            <div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;">
+              <div style="font-family:'Comfortaa',sans-serif;font-weight:700;color:var(--black);background:var(--jb-yellow);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;">${i+1}</div>
+              <div style="font-size:12px;color:var(--text-2);line-height:1.55;padding-top:3px;">${s}</div>
+            </div>
+          `).join('')}
+        </div>
+        ${config.exampleDrawerId?`
+        <div style="margin-top:auto;padding-top:8px;">
+          <button onclick="openDrawer('${config.exampleDrawerId}')" style="padding:9px 18px;border:1px solid var(--jb-green);background:var(--white);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:var(--jb-green);cursor:pointer;letter-spacing:0.02em;transition:all 0.15s;" onmouseover="this.style.background='var(--jb-green)';this.style.color='#fff';" onmouseout="this.style.background='var(--white)';this.style.color='var(--jb-green)';">See example JD &rarr;</button>
+        </div>`:''}
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;overflow-y:auto;min-height:0;">
+        ${config.fields.map(f=>`
+          <div style="background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:11px 14px;border-left:3px solid var(--jb-yellow);">
+            <div style="font-size:12px;font-weight:600;color:var(--black);margin-bottom:3px;">${f.label}</div>
+            <div style="font-size:11px;color:var(--text-3);font-style:italic;margin-bottom:7px;line-height:1.4;">${f.hint}</div>
+            ${Array.from({length:f.lines},()=>`<div style="border-bottom:1px solid var(--rule);height:20px;margin-bottom:4px;"></div>`).join('')}
+          </div>
+        `).join('')}
+      </div>
+    </div>
   `;
   inner.appendChild(content);
   body.appendChild(inner);

@@ -433,7 +433,7 @@ const DECK_CONFIG = {
       leftItems: [
         { title: "What we observed",            sub: "The end-to-end manual journey — findings from ridealongs across sales, service, marketing and leadership", accent: "var(--jb-green)", bg: "var(--off-white)" },
         { title: "The honest conversation",      sub: "You've outgrown your foundation — what that means and why it's a growth opportunity, not a problem",     accent: "var(--text-2)",  bg: "" },
-        { title: "Three goals. One flywheel.",   sub: "How AI productivity, customer satisfaction and revenue growth reinforce each other on the path to $1B",   accent: "var(--jb-yellow)", bg: "" },
+        { title: "Three goals. One flywheel.",   sub: "How productivity, customer satisfaction and revenue growth reinforce each other on the path to $1B",   accent: "var(--jb-yellow)", bg: "" },
         { title: "Three horizons to $1B",        sub: "Recommendations across quick wins (0–90 days), tactical (3–9 months) and strategic (9–18 months)",       accent: "var(--black)",   bg: "" }
       ],
       rightItems: [
@@ -593,6 +593,34 @@ const DECK_CONFIG = {
         tagRight:  "Customer<br>Satisfaction",
         tagBottom: "Revenue Growth"
       }
+    },
+
+    // ─── S4b: WORKSHOP — WRITE A JD FOR YOUR AI AGENT ───────────────────────
+    {
+      id:    "s4b",
+      type:  "workshop",
+      topbarLabel: "Workshop exercise",
+      kicker: "Workshop exercise",
+      title:  "Write a JD for your <span class=\"hl\">AI agent</span>",
+      slideN: "04b",
+      exampleDrawerId: "drawer-agent-jd",
+      brief: [
+        "AI won't replace the people in this room. But it can take on the repetitive, time-consuming work that gets in the way of the things only people can do.",
+        "Think about your day. The tasks that sit on your desk week after week — things you do because someone has to, but that don't actually need a human. That's your new hire's job."
+      ],
+      steps: [
+        "Think about the parts of your role that feel more like admin than expertise — data lookups, status updates, follow-up emails, report compiling.",
+        "Imagine if those tasks happened automatically, accurately, and without you touching them. What would that free you up to do?",
+        "Give your agent a title that reflects the role they play — something you'd actually put on a job board.",
+        "Fill in the template on the right. Bullet points and rough ideas are fine."
+      ],
+      fields: [
+        { label: "Job title",                  hint: "e.g. \"Quote Follow-Up Agent\" / \"Weekly Reporting Agent\" / \"New Account Research Agent\"", lines: 1 },
+        { label: "Role overview",              hint: "1–2 sentences: what does this agent do, and why does the team need it?",                        lines: 2 },
+        { label: "Key responsibilities",       hint: "3–5 things the agent does regularly. Use action verbs — monitors, compiles, sends, updates, flags.", lines: 4 },
+        { label: "What it hands back to you",  hint: "A summary, an alert, a draft, a report? How do you use it?",                                   lines: 2 },
+        { label: "What it can't do",           hint: "Where does human judgement begin? Pricing decisions? Customer relationships? Escalations?",     lines: 2 }
+      ]
     },
 
     // ─── S5: HORIZONS OVERVIEW ───────────────────────────────────────────────
@@ -909,6 +937,76 @@ const DECK_CONFIG = {
   // ── DRAWERS ────────────────────────────────────────────────────────────────
   drawers: {
 
+    // ─── AGENT JD EXAMPLE DRAWER ─────────────────────────────────────────────
+
+    "drawer-agent-jd": {
+      kicker: "Workshop reference",
+      title:  "Example agent JD",
+      subtitle: "Use this as a reference — not a template to copy",
+      imageStyle: "padding:0;flex-direction:column;justify-content:flex-start;background:var(--black);",
+      imageHtml: `
+        <div style="padding:28px 28px 20px;flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:12px;">Position description</div>
+            <div style="font-family:'Comfortaa',sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:1.25;margin-bottom:8px;">Quote Follow-Up &amp; Pipeline Integrity Agent</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:20px;">JB Hi-Fi Business &middot; B2B Sales Operations</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;">
+              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">Agentforce</span>
+              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">Salesforce CRM</span>
+              <span style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.65);border:0.5px solid rgba(255,255,255,0.2);border-radius:4px;font-size:11px;padding:3px 10px;font-family:'DM Mono',monospace,sans-serif;">AI-assisted</span>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:16px;background:rgba(255,236,14,0.08);border:1px solid rgba(255,236,14,0.25);border-radius:var(--radius);">
+            <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">This agent supports the B2B sales team by monitoring open quotes, following up with prospects at the right time, and maintaining accurate pipeline records in Salesforce — so account managers can focus on high-value conversations rather than chasing paperwork.</div>
+          </div>
+        </div>
+      `,
+      sections: [
+        {
+          label: "Key responsibilities",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Monitors all open quotes and flags those approaching expiry or with no customer response after 3 business days",
+                "Sends personalised follow-up emails on behalf of the account manager at pre-set intervals, using approved templates",
+                "Updates opportunity stage and close date in Salesforce based on customer engagement signals",
+                "Compiles a daily pipeline health summary — highlighting stalled deals, at-risk opportunities, and wins requiring data cleanup",
+                "Cross-checks pipeline values against the prior week and surfaces anomalies that may indicate data entry errors"
+              ]
+            }
+          ]
+        },
+        {
+          label: "What it hands back to you",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "A daily digest: stalled deals, overdue follow-ups, and pipeline exceptions to review",
+                "Pre-drafted follow-up emails ready to review and send — or already sent if approved in advance",
+                "A weekly pipeline summary ready to present in your sales review — no manual report pulling required"
+              ]
+            }
+          ]
+        },
+        {
+          label: "What it can't do (and shouldn't try)",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Negotiate pricing or approve discounts — that's a human call every time",
+                "Manage a complex or sensitive customer escalation — those need a real conversation",
+                "Decide whether to walk away from a deal or invest more time — that judgement belongs to the account manager",
+                "Build the customer relationship — it can support it, not replace it"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
     // ─── ICEBREAKER DRAWER ────────────────────────────────────────────────────
 
     "drawer-icebreaker": {
@@ -935,7 +1033,7 @@ const DECK_CONFIG = {
 
     "drawer-ai": {
       kicker: "Step 1 of 3 — The flywheel",
-      title:  "AI Productivity",
+      title:  "Productivity",
       image:  {
         src: "./assets/images/scaling-ai.png",
         alt: "Scaling AI — Revenue Growth vs Cost of Teams"
