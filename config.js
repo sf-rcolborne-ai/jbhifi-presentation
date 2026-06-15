@@ -666,6 +666,8 @@ const DECK_CONFIG = {
           title:     "Automate &amp; connect",
           sub:       "CSAT &amp; Revenue",
           items: [
+            "Clean org migration — platform built for scale",
+            "Data 360 — unified customer, product &amp; fulfilment data",
             "AgentForce quoting — natural language, business rules enforced",
             "Einstein Conversation Insights — auto-capture calls, update opps",
             "Service AI assist — Customer 360 on case open, ETA automated",
@@ -682,12 +684,10 @@ const DECK_CONFIG = {
           title:     "Platform for $1B",
           sub:       "Strategic transformation",
           items: [
-            "Data 360 — unified customer, product &amp; fulfilment data",
             "Autonomous marketing — AI-composed content &amp; nurture",
             "Agentic service — autonomous resolution for common cases",
             "Connected retail agent experience across all B2B channels",
-            "Predictive revenue intelligence — deal scoring &amp; upsell triggers",
-            "Clean org migration — platform built for scale"
+            "Predictive revenue intelligence — deal scoring &amp; upsell triggers"
           ]
         }
       ]
