@@ -654,7 +654,9 @@ const DECK_CONFIG = {
             "Resolve SCV audio &amp; login technical issues",
             "Skills-based case routing replacing cherry-pick",
             "BDM-specific dynamic dashboards with personal pipeline view",
-            "Quote expiry automation — end manual individual emails"
+            "Quote expiry automation — end manual individual emails",
+            "Unified sign up — single in-session form, no email handoff",
+            "Templatised EDM production — reusable content blocks"
           ]
         },
         {
@@ -667,9 +669,10 @@ const DECK_CONFIG = {
             "AgentForce quoting — natural language, business rules enforced",
             "Einstein Conversation Insights — auto-capture calls, update opps",
             "Service AI assist — Customer 360 on case open, ETA automated",
-            "Marketing Cloud segmentation — behavioural, not broadcast",
-            "Unified onboarding — single sign-up, data-driven branching",
-            "Pipeline Intelligence — trusted forecasting replacing Excel"
+            "Agentic Marketing Segmentation — behavioural triggers, not broadcast",
+            "Unified Onboarding — data-driven journey branching",
+            "Pipeline Intelligence — trusted forecasting replacing Excel",
+            "Qualified SDR Agent — leads handled end-to-end autonomously"
           ]
         },
         {
@@ -680,7 +683,7 @@ const DECK_CONFIG = {
           sub:       "Strategic transformation",
           items: [
             "Data 360 — unified customer, product &amp; fulfilment data",
-            "Agentic SDR — non-ICP leads handled end-to-end autonomously",
+            "Autonomous marketing — AI-composed content &amp; nurture",
             "Agentic service — autonomous resolution for common cases",
             "Connected retail agent experience across all B2B channels",
             "Predictive revenue intelligence — deal scoring &amp; upsell triggers",
@@ -738,6 +741,18 @@ const DECK_CONFIG = {
               title:    "Quote expiry automation",
               desc:     "Automate expiry reminders and follow-ups. Ends the manual process where individual reps send emails one-by-one to chase expiring quotes.",
               tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "Productivity", cls: "rtag-b" }]
+            },
+            {
+              drawerId: "dqw-signup",
+              title:    "Unified sign up",
+              desc:     "Replace the two-form email handoff with a single in-session sign-up. Removes drop-off and eliminates duplicate accounts created from conflicting data sources.",
+              tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "CSAT", cls: "rtag-y" }]
+            },
+            {
+              drawerId: "dqw-edm",
+              title:    "Templatised EDM production",
+              desc:     "Reusable Content Builder blocks replace the manual build-per-send process. Reclaims significant marketing capacity without any platform change.",
+              tags: [{ label: "Productivity", cls: "rtag-b" }, { label: "Revenue", cls: "rtag-g" }]
             }
           ]
         },
@@ -771,7 +786,7 @@ const DECK_CONFIG = {
             },
             {
               drawerId: "dtac-mktg",
-              title:    "Behavioural marketing segmentation",
+              title:    "Agentic Marketing Segmentation",
               desc:     "Replace broadcast with data-driven journeys triggered by purchase behaviour and engagement signals. Pipeline contribution measurable for the first time.",
               tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "CSAT", cls: "rtag-y" }]
             },
@@ -780,6 +795,12 @@ const DECK_CONFIG = {
               title:    "Unified onboarding journey",
               desc:     "Replace the two-step drop-off prone sign-up with a single flow using data-driven branching. Onboarding done by the platform, not the team manually.",
               tags: [{ label: "CSAT", cls: "rtag-y" }, { label: "Revenue", cls: "rtag-g" }]
+            },
+            {
+              drawerId: "dstr-sdr",
+              title:    "Qualified SDR Agent",
+              desc:     "Leads qualified, nurtured and progressed by an AI agent end-to-end. BDMs focus on deals that matter; the agent handles everything else autonomously.",
+              tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "AgentForce", cls: "rtag-d" }]
             },
             {
               drawerId: "dtac-pipe",
@@ -795,9 +816,9 @@ const DECK_CONFIG = {
           items: [
            
             {
-              drawerId: "dstr-sdr",
-              title:    "Agentic SDR — autonomous lead handling",
-              desc:     "Non-ICP leads qualified, nurtured and handed off by an AI agent. Your BDMs focus on deals that matter. The agent manages everything below the threshold.",
+              drawerId: "dstr-automktg",
+              title:    "Autonomous marketing",
+              desc:     "AI composes content and runs nurture autonomously. Predictive personalisation in-journey using propensity, churn and next-best-action signals from unified data.",
               tags: [{ label: "Revenue", cls: "rtag-g" }, { label: "AgentForce", cls: "rtag-d" }]
             },
             {
@@ -853,7 +874,7 @@ const DECK_CONFIG = {
         { id: "op11", label: "Skills-based case routing",         q: "v" },
         { id: "op12", label: "Quote expiry automation",           q: "s" },
         { id: "op13", label: "Pipeline Intelligence",             q: "d" },
-        { id: "op14", label: "Agentic SDR",                       q: "d" },
+        { id: "op14", label: "Qualified SDR Agent",                q: "m" },
         { id: "op15", label: "Unified onboarding journey",        q: "m" }
       ]
     },
@@ -1063,7 +1084,7 @@ const DECK_CONFIG = {
                 "Quoting agent — builds and validates quotes from natural language",
                 "Approval automation — auto-approve low-risk thresholds, eliminating 1hr delays",
                 "Call transcription + opportunity update — zero manual logging",
-                "Agentic SDR — non-ICP leads handled end-to-end without rep involvement"
+                "Qualified SDR Agent — leads handled end-to-end without rep involvement"
               ]
             }
           ]
@@ -1198,7 +1219,7 @@ const DECK_CONFIG = {
                 "Trusted pipeline intelligence — accurate forecasting replaces the broken Excel model",
                 "AgentForce quoting — deals closed faster when quotes take seconds not 5–10 minutes",
                 "Predictive revenue intelligence — deal scoring, churn signals and upsell triggers in the rep workflow",
-                "Agentic SDR — non-ICP leads handled autonomously, BDMs focused on high-value opportunities",
+                "Qualified SDR Agent — leads handled autonomously, BDMs focused on high-value opportunities",
                 "Data 360 — unified customer data enabling cross-sell and personalisation at scale"
               ]
             }
@@ -1608,33 +1629,21 @@ const DECK_CONFIG = {
 
     "dtac-mktg": {
       kicker: "Tactical · 3–9 months",
-      title:  "Behavioural marketing segmentation",
-            video: {
-        type: "local",
-        url: "./assets/videos/AgenticSegmentation.mp4"
-      },
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;">
-            <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--pain-red);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.1em;">Broadcast today</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Same email to all customers. No segmentation. Generic content. Low engagement. Marketing contribution to pipeline unmeasurable.</div>
-            </div>
-            <div style="padding-top:30px;font-size:24px;color:var(--rule);">→</div>
-            <div style="padding:20px;background:var(--white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--jb-green);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.1em;">Behavioural tomorrow</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">Journeys triggered by what customers actually do. Purchase behaviour, portal activity, quote history. Right message at the right moment.</div>
-            </div>
-          </div>
-        </div>
-      `,
+      title:  "Agentic Marketing Segmentation",
+      video: { type: "local", url: "./assets/videos/AgenticSegmentation.mp4" },
       sections: [
         {
           label: "What it does",
           content: [
-            { type: "paragraph", text: "Replace broadcast marketing with data-driven journeys built in Marketing Cloud — triggered by real customer behaviour like recent purchases, portal logins, quote activity, and engagement signals." },
-            { type: "paragraph", text: "For the first time, marketing contribution to revenue pipeline becomes measurable." }
+            { type: "paragraph", text: "Marketers describe the audience they want in plain English. The agent builds the segment in seconds — drawing on a live unified customer profile across email engagement, website activity, CRM activity and prior sales interactions." },
+            { type: "paragraph", text: "<strong>No SQL. No data analyst. No wait.</strong> Powered by Data 360, segments aren't stitched-together batch exports — they're real-time and continuously adapt as behaviour and intent evolve." }
+          ]
+        },
+        {
+          label: "Why it matters for JB Hi-Fi",
+          content: [
+            { type: "paragraph", text: "What used to take days of data wrangling becomes a few minutes of conversation. Marketers self-serve high-intent audiences without technical dependency, then activate across owned and paid channels from a single platform." },
+            { type: "paragraph", text: "This is the unlock referenced in Unified Onboarding — the segment-aware foundation is what lets Agentic Segmentation fire behavioural triggers rather than broadcast. Without the quick wins and onboarding branching in place, this capability has nothing to build on." }
           ]
         },
         {
@@ -1643,10 +1652,10 @@ const DECK_CONFIG = {
             {
               type: "bullet-list",
               items: [
-                "Higher engagement — messages timed to customer intent signals",
-                "Measurable pipeline contribution from marketing activity",
-                "Reduced unsubscribes from irrelevant broadcast emails",
-                "Foundation for personalisation at scale as Data 360 matures"
+                "Days of analyst data-wrangling collapse to minutes of marketer self-serve",
+                "Higher engagement — segments fire on real intent, not calendar batches",
+                "Measurable pipeline contribution from marketing activity for the first time",
+                "Activated across owned and paid channels from a single platform"
               ]
             }
           ]
@@ -1656,17 +1665,21 @@ const DECK_CONFIG = {
 
     "dtac-onboard": {
       kicker: "Tactical · 3–9 months",
-      title:  "Unified onboarding journey",
+      title:  "Unified Onboarding — data-driven journey branching",
       imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
       imageHtml: `
         <div style="width:100%;">
           <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);margin-bottom:16px;">
-            <div style="font-size:11px;font-weight:700;color:var(--pain-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Current: two-step drop-off</div>
-            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Customers hit a two-step sign-up process. Drop-off occurs at step 2. Manual onboarding completed by the team. Duplicate accounts created from conflicting information sources. Generic welcome emails sent.</div>
+            <div style="font-size:11px;font-weight:700;color:var(--pain-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Today — one journey for everyone</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Single onboarding journey regardless of industry, size or partner program. Generic welcome. No branching. The same content for Capricorn as for a direct SMB.</div>
           </div>
           <div style="padding:20px;background:var(--off-white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
-            <div style="font-size:11px;font-weight:700;color:var(--jb-green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Future: single sign-up, data-driven branching</div>
-            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">One frictionless sign-up. Marketing Cloud journey branches based on customer type, behaviour and intent signals. Onboarding is personalised and automated end-to-end.</div>
+            <div style="font-size:11px;font-weight:700;color:var(--jb-green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Branched — same backbone, different content</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;">
+              <div style="padding:8px 10px;background:var(--white);border:1px solid var(--rule);border-radius:4px;font-size:11px;color:var(--text-2);text-align:center;">Industry</div>
+              <div style="padding:8px 10px;background:var(--white);border:1px solid var(--rule);border-radius:4px;font-size:11px;color:var(--text-2);text-align:center;">Size</div>
+              <div style="padding:8px 10px;background:var(--white);border:1px solid var(--rule);border-radius:4px;font-size:11px;color:var(--text-2);text-align:center;">Partner</div>
+            </div>
           </div>
         </div>
       `,
@@ -1674,7 +1687,22 @@ const DECK_CONFIG = {
         {
           label: "What it does",
           content: [
-            { type: "paragraph", text: "Unify the B2B onboarding process — a single sign-up that feeds into a Marketing Cloud journey, branching based on the customer's segment, product interest and engagement signals." }
+            { type: "paragraph", text: "Replace the single onboarding journey with a branched Engagement Studio program that adapts based on what is already known about the prospect at sign-up — industry, company size, and partner program. Same backbone, different content." },
+            { type: "paragraph", text: "<strong>Start small:</strong> three to five branches covering the largest industry segments by volume plus Capricorn. Add segments as evidence accrues — don't pre-build twenty branches before measuring lift." }
+          ]
+        },
+        {
+          label: "Why it's doable",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Engagement Studio branching and dynamic content are foundational MCAE capabilities — the team is already a sophisticated user",
+                "No new platform purchase, no new custom objects",
+                "Cross-sell already runs off the MCAE Orders object — this brings the same logic to onboarding",
+                "Strongly amplified by Templatised EDM production — variant content becomes composable, not a rebuild per branch"
+              ]
+            }
           ]
         },
         {
@@ -1683,10 +1711,10 @@ const DECK_CONFIG = {
             {
               type: "bullet-list",
               items: [
-                "Reduces drop-off at sign-up — fewer lost customers at the first hurdle",
-                "Eliminates manual onboarding team effort for standard customers",
-                "Cleaner customer data from the start — reduces duplicate accounts",
-                "Personalised first impression — right content for each customer type"
+                "Lifts engagement on onboarding sequences — the highest-attention window",
+                "Unlocks partner program differentiation (Capricorn first, others later) without bespoke build",
+                "Establishes the segment-aware foundation needed for behavioural marketing segmentation",
+                "Foundation for the broader Personalisation Depth &amp; Acquisition Quality outcome"
               ]
             }
           ]
@@ -1774,30 +1802,23 @@ const DECK_CONFIG = {
     },
 
     "dstr-sdr": {
-      kicker: "Strategic · 9–18 months",
-      title:  "Agentic SDR",
-      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
-      imageHtml: `
-        <div style="width:100%;">
-          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;">
-            <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--pain-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Today</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">BDMs handle all leads regardless of fit. Non-ICP accounts consume time that should go to high-value opportunities. Manual prospecting, manual qualification, manual outreach.</div>
-            </div>
-            <div style="padding-top:30px;font-size:24px;color:var(--rule);">→</div>
-            <div style="padding:20px;background:var(--white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
-              <div style="font-size:11px;font-weight:700;color:var(--jb-green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">With Agentic SDR</div>
-              <div style="font-size:12px;color:var(--text-2);line-height:1.5;">AI agent qualifies, nurtures and hands off non-ICP leads end-to-end. BDMs focus entirely on high-value accounts. Pipeline quality improves. Team scales without headcount.</div>
-            </div>
-          </div>
-        </div>
-      `,
+      kicker: "Tactical · 3–9 months",
+      title:  "Qualified SDR Agent",
+      video: { type: "local", url: "./assets/videos/QualifiedSDRAgent.mp4" },
       sections: [
         {
           label: "What it does",
           content: [
-            { type: "paragraph", text: "An AgentForce SDR agent handles the full lifecycle of non-ICP leads — initial qualification, nurture sequences, objection handling, and handoff to a human BDM when the lead meets defined criteria." },
-            { type: "paragraph", text: "BDMs are freed to focus entirely on high-value accounts, significantly increasing their capacity for quality pipeline." }
+            { type: "paragraph", text: "The Qualified SDR Agent is the AI SDR inside Agentforce Marketing — purpose-built to generate inbound pipeline at scale on the two channels where it actually happens: <strong>the website and the email inbox</strong>." },
+            { type: "paragraph", text: "It identifies and qualifies website visitors in real time using buyer intent and account signals, engages them conversationally via voice, video and text, follows up by email to keep pipeline moving, and books meetings directly with the right rep — all inside the guardrails marketing sets." }
+          ]
+        },
+        {
+          label: "Why it matters for JB Hi-Fi",
+          content: [
+            { type: "paragraph", text: "The JB Hi-Fi Business website handles thousands of sessions a week — most of them today walk in, look around, and walk out. Forms, chat widgets, SDR coverage and marketing ops workflows each handle a slice; none cover the full inbound flow." },
+            { type: "paragraph", text: "The Qualified SDR Agent replaces that stitched-together coverage with a single agent that's always on, qualifies on arrival, and pulls context directly from <strong>Salesforce CRM</strong> so every conversation is account-aware. BDMs only see meetings that are ready to take." },
+            { type: "paragraph", text: "Sits naturally alongside <strong>Agentic Segmentation</strong> and the <strong>Marketing Goals Agent</strong>: segmentation builds the audience, Goals Agent runs the campaign, the Qualified SDR Agent converts the inbound traffic those campaigns generate." }
           ]
         },
         {
@@ -1806,10 +1827,10 @@ const DECK_CONFIG = {
             {
               type: "bullet-list",
               items: [
-                "BDMs focused on deals that move the needle toward $1B",
-                "No leads fall through — agent handles the long tail consistently",
-                "Scales revenue capacity without proportional headcount growth",
-                "Requires Data 360 unified data for personalised agent interactions"
+                "Inbound coverage moves from working hours and manual triage to always-on, qualified-on-arrival",
+                "BDMs only see meetings that are pre-qualified and ready to talk — capacity goes back to deals that move the needle",
+                "Replaces the patchwork of forms, chat widgets and manual SDR workflows with one autonomous agent",
+                "Built natively on the Salesforce Platform — the agent inherits CRM context on day one, no replatform required"
               ]
             }
           ]
@@ -1944,6 +1965,159 @@ const DECK_CONFIG = {
           label: "Note",
           content: [
             { type: "paragraph", text: "The detailed migration path, timeline and investment will be covered in a separate technical platform session — this is flagged for that conversation, not resolved today." }
+          ]
+        }
+      ]
+    },
+
+    // ─── NEW MARKETING DRAWERS ────────────────────────────────────────────────
+
+    "dstr-automktg": {
+      kicker: "Strategic · 9–18 months",
+      title:  "Autonomous marketing — the Marketing Goals Agent",
+      video: { type: "local", url: "./assets/videos/MarketingGoalsAgent.mp4" },
+      sections: [
+        {
+          label: "What it does",
+          content: [
+            { type: "paragraph", text: "Marketers stop building campaigns and start managing agents. You set the goal, the budget, the guardrails, and the autonomy limits — the Marketing Goals Agent runs the campaign end-to-end." },
+            { type: "paragraph", text: "Using customer context and live signals, the agent autonomously determines the right audience (segment build included), the right content and messaging, the right channel and timing, then <strong>continuously optimises</strong> as customer behaviour evolves." }
+          ]
+        },
+        {
+          label: "What it looks like in practice",
+          content: [
+            { type: "paragraph", text: "<em>\"Recover declining conversion among parents shopping during peak back-to-school demand.\"</em>" },
+            { type: "paragraph", text: "The agent builds the audience, launches the campaign, optimises channel mix, tests messaging, and adapts offers as behaviour changes — all within the guardrails the marketer set. The marketer's thinking isn't replaced; the manual execution work between strategy and results is." }
+          ]
+        },
+        {
+          label: "Why it matters for JB Hi-Fi",
+          content: [
+            { type: "paragraph", text: "A fundamental shift in the operating model: from predefined workflows to autonomous, goal-based execution. Marketers stay in control of strategy and outcomes — the agent handles the execution layer that today consumes most of the team's bandwidth." },
+            { type: "paragraph", text: "Powered by Data 360, drawing on a unified, real-time customer profile — not static batch data. Works in tandem with the <strong>Content Agent</strong>: Goals Agent drives the campaign, Content Agent generates the on-brand assets to fuel it." }
+          ]
+        },
+        {
+          label: "Impact",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Weeks of campaign briefing, building and optimisation collapse to goal-setting and review",
+                "Marketing capacity scales without scaling headcount — agents handle execution, marketers handle strategy",
+                "Continuous in-flight optimisation replaces post-campaign analysis cycles",
+                "Closes the marketing arc: foundational quick wins → segment-aware journeys → autonomous execution"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "dqw-signup": {
+      kicker: "Quick win · 0–90 days",
+      title:  "Unified sign up — single in-session form",
+      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
+      imageHtml: `
+        <div style="width:100%;">
+          <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);margin-bottom:16px;">
+            <div style="font-size:11px;font-weight:700;color:var(--pain-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Today — two forms, email handoff</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Customer completes Form 1, receives an email with a link to Form 2. Drop-off occurs between steps. Duplicate accounts created when customers return with different ABN data. Manual review team cleans up the mess.</div>
+          </div>
+          <div style="padding:20px;background:var(--off-white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
+            <div style="font-size:11px;font-weight:700;color:var(--jb-green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Tomorrow — single in-session flow</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Two sequential sections on one page. On Continue, a lightweight async post creates the Salesforce prospect immediately. Customer flows straight through — no email, no drop-off gap, no conflicting ABN data on return.</div>
+          </div>
+        </div>
+      `,
+      sections: [
+        {
+          label: "What it does",
+          content: [
+            { type: "paragraph", text: "Replace the two-form, email-handoff sign-up with a single continuous session. The form is restructured into two sequential sections on one page — when the customer clicks Continue, a lightweight async post to an MCAE Form Handler creates the Salesforce prospect immediately. If they drop off, the prospect already exists and the return link pre-fills Form 1 data <strong>locked</strong> — so a conflicting ABN cannot be entered on return." }
+          ]
+        },
+        {
+          label: "Why it's doable",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "MCAE Form Handlers are designed for exactly this — accepting posts from non-MCAE-hosted forms",
+                "Async partial form submission via JavaScript is a standard web pattern",
+                "Salesforce duplicate rules on email and ABN provide a native safety net",
+                "Uses the standard Prospect/Lead — no new custom object, sidesteps the custom object limit pressure"
+              ]
+            }
+          ]
+        },
+        {
+          label: "Impact",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Eliminates the drop-off gap at the highest-intent moment of the journey",
+                "Removes duplicate-account risk from conflicting cross-form data entry",
+                "Reduces operational overhead on the manual sign-up review team",
+                "Foundation for the broader Increased Acquisition &amp; Efficiency outcome"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "dqw-edm": {
+      kicker: "Quick win · 0–90 days",
+      title:  "Templatised EDM production",
+      imageStyle: "padding:40px;flex-direction:column;gap:20px;align-items:flex-start;",
+      imageHtml: `
+        <div style="width:100%;">
+          <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-top:3px solid var(--pain-red);border-radius:var(--radius);margin-bottom:16px;">
+            <div style="font-size:11px;font-weight:700;color:var(--pain-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Today — build from scratch every send</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Each EDM is rebuilt manually. Images, copy, pricing and SKUs entered by hand. Brand compliance checked by eye. Approvals review the full email. Days to turnaround a tactical campaign.</div>
+          </div>
+          <div style="padding:20px;background:var(--off-white);border:1px solid var(--jb-green);border-top:3px solid var(--jb-green);border-radius:var(--radius);">
+            <div style="font-size:11px;font-weight:700;color:var(--jb-green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Tomorrow — compose, don't rebuild</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6;">Governed library of reusable blocks. SKU lookup hydrates imagery, copy and price automatically. Design is locked. <strong>Copy is the only true free-text.</strong> Approvals review change, not rebuild.</div>
+          </div>
+        </div>
+      `,
+      sections: [
+        {
+          label: "What it does",
+          content: [
+            { type: "paragraph", text: "Move product-focused EDM production from build-from-scratch to modular composition. Build a governed library of reusable MCAE content blocks — each with locked design and exposed editable fields — backed by a structured product reference so SKU lookup hydrates imagery, copy and price automatically." }
+          ]
+        },
+        {
+          label: "Why it's doable",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "MCAE snippets and template-locked regions are designed for governed brand with marketer-editable zones",
+                "The team is already a sophisticated B2B MCAE user — in-tooling, not new tooling",
+                "Product reference can ride on the existing MCAE Orders custom object — no new object, sidesteps the custom object limit",
+                "The lift is mostly the design audit: 8–12 blocks cover ~80% of sends"
+              ]
+            }
+          ]
+        },
+        {
+          label: "Impact",
+          content: [
+            {
+              type: "bullet-list",
+              items: [
+                "Reclaims significant marketing capacity without changing headcount",
+                "Cuts time-to-market for tactical campaigns from days to hours",
+                "Reduces error rates on SKU, image and price insertion",
+                "Makes segmented and personalised sends operationally feasible — the prerequisite for data-driven onboarding"
+              ]
+            }
           ]
         }
       ]
