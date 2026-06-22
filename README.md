@@ -1,4 +1,16 @@
-# JB Hi-Fi Business × Salesforce — Executive Briefing
+# Executive Presentation Deck
+
+A config-driven horizontal-scroll presentation built for Salesforce executive briefings. Clone and rebrand for any customer — all content lives in `config.js`.
+
+## Using as a template
+
+1. Click **"Use this template"** on GitHub (or clone the repo)
+2. Run locally and open the deck (see below)
+3. Open Claude Code in the project folder
+4. Type `/rebrand` — Claude will guide you through swapping the client name, logos, and branding
+5. Type `/deck` for help editing any slide or drawer content
+
+## JB Hi-Fi Business × Salesforce — Original build
 
 ## Running locally
 

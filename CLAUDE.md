@@ -1,4 +1,30 @@
-# JB Hi-Fi × Salesforce Executive Presentation — Claude Code Spec
+# Executive Presentation Deck — Claude Code Spec
+
+## Using this as a template for a new customer
+
+This repo is designed to be cloned and rebranded. The entire deck is driven by `config.js` — swap the meta values and content, and you have a new presentation.
+
+**Quick start:**
+1. Clone or use the "Use this template" button on GitHub to create your own copy
+2. Run locally: `npx serve .` then open http://localhost:3000
+3. Enter the password (set in `DECK_CONFIG.meta.password` in `config.js`)
+4. In Claude Code, type `/rebrand` to be guided through swapping client name, logos, and branding
+5. Type `/deck` for help making any content changes to slides and drawers
+
+**The one rule:** only ever edit `config.js` for content changes. Never touch `main.js`, `index.html`, or `styles.css` for content — those are the presentation engine.
+
+**What to change for a new customer (all in `DECK_CONFIG.meta`):**
+- `client` — client company name
+- `partner` — your company name
+- `logos.client` / `logos.partner` — logo URLs
+- `audience`, `date`, `challenge` — context for the title slide
+- `password` — access password
+
+**Claude Skills available:**
+- `/rebrand` — guided rebrand wizard: prompts for all meta values and applies them
+- `/deck` — content editor: add/edit slides and drawers in plain English
+
+---
 
 ## Project overview
 
