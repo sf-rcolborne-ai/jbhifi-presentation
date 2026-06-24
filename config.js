@@ -4,16 +4,16 @@ const DECK_CONFIG = {
 
   // ── GLOBAL ─────────────────────────────────────────────────────────────────
   meta: {
-    client:   "JB Hi-Fi Business",
+    client:   "Asahi",
     partner:  "Salesforce",
     date:     "2026",
-    audience: "JB Hi-Fi B2B Leadership Team",
-    challenge: '"Learn our business and tell us how to get better."',
+    audience: "Asahi B2B Team",
+    challenge: '"How might we equip our commercial organisation with autonomous, AI-driven intelligence so that every sales rep, marketer, and service agent can act on the right insight, for the right customer, at the right moment, in order to measurably accelerate revenue growth and reduce selling cost"',
     logos: {
-      client:  "https://www.jbhifi.business/Themes/BPDTHEME01/theme-client-updates/img/logos/logo.svg",
+      client:  "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Asahi_logo.svg/960px-Asahi_logo.svg.png?_=20251018060544",
       partner: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png"
     },
-    password: "jbhifi2026"  // Change this to update the access password
+    password: "Asahi2026"  // Change this to update the access password
   },
 
   // ── SURVEY ─────────────────────────────────────────────────────────────────
@@ -414,12 +414,12 @@ const DECK_CONFIG = {
       id:       "s0",
       type:     "title",
       title:    "Transforming the commercial experience — from friction to flow.",
-      subtitle: "Accelerating B2B Growth for JB Hi-Fi",
+      subtitle: "Accelerating B2B Growth for Asahi",
       imagePath: null,
       metaItems: [
         { label: "Vision", value: "The path to $1 Billion" },
-        { label: "Date",      value: "16 June 2026" },
-        { label: "Audience",  value: "JB Hi-Fi B2B team" }
+        { label: "Date",      value: "29 June 2026" },
+        { label: "Audience",  value: "Asahi B2B Team" }
       ]
     },
 
